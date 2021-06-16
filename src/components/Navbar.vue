@@ -62,7 +62,7 @@
      
   }
   .navbar-nav {
-    padding: 20px;
+
     position: absolute;
     left: 50%;
     transform: translatex(-50%);
