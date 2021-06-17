@@ -14,6 +14,9 @@ import './form';
 
 import store from './store';
 
+import './globalMixin';
+import './httpClient';
+
 Vue.config.productionTip = false
 
 new Vue({

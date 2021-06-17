@@ -1,20 +1,33 @@
 <template>
 
   <section class="src-components-productos">
-        <h1>src-components-productos Component</h1>
+    <br>
+    <h2>Catalogo de productos</h2>
+
+    <h3 v-if="!mostrarProductos.length" class="alert alert-danger">
+      No hay Productos para mostrar
+    </h3>
+
+      <div class="card-deck">
+        <Producto v-for="producto in mostrarProductos" 
+          :key="producto.id"
+          :producto="producto"/>
+      </div>
+
   </section>
 
 </template>
 
 <script lang="js">
+  import Producto from './Producto.vue'
   export default  {
     name: 'src-components-productos',
     components: {
-
+      Producto
     },
     props: [],
     mounted () {
-
+      this.$store.dispatch('getProductos')
     },
     data () {
       return {

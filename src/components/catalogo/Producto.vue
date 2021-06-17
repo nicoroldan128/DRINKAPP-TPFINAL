@@ -1,7 +1,24 @@
 <template>
 
-  <section class="src-components-producto">
-          <h1>src-components-producto Component</h1>
+   <section class="src-components-producto">
+
+    <!-- <div class="media alert alert-primary">
+      <img :src="producto.imagen" :style="{width:'150px', borderRadius:'15px'}" :alt="producto.id">
+      <div class="media-body ml-3">
+        <p><u>Producto {{producto.name}}</u></p>
+        <p><b>$ {{producto.price}}</b></p>
+      </div>
+    </div> -->
+
+    <div class="card border-dark mb-3" style="max-width: 25rem;">
+      <img class="card-img-top" :src="producto.imagen" :style="{width:'300px', borderRadius:'15px'}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><b>{{producto.name}}</b></h5>
+        <p class="card-text">$ {{producto.price}}</p>
+        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+      </div>
+    </div>
+
   </section>
 
 </template>
@@ -10,7 +27,7 @@
 
   export default  {
     name: 'src-components-producto',
-    props: [],
+    props: ['producto'],
     mounted () {
 
     },
@@ -32,6 +49,16 @@
 
 <style scoped lang="css">
   .src-components-producto {
-
+  }
+  .card-title{
+    text-align: center;
+    font-size: 28px;
+  }
+  .card-text{
+    font-size: 22px;
+    text-align: center;
+  }
+  .card{
+    display: flex;
   }
 </style>

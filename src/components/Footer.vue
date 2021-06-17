@@ -1,18 +1,18 @@
 <template>
   <section class="src-components-footer">
     <div class="container-footer">
-        <div class="container mr-5">
+        <div class="col-md-4">
           <h1>Conocenos</h1>
           <p>Llegamos para simplificarte la vida y cuidar tu bolsillo.</p>
           <p>Somos la mejor alternativa para la compra de tus bebidas favoritas.</p>
         </div>
         
-        <div class="container mr-1 ml-2">
+        <div class="col-md-4 ">
           <div class="row">
             <h1>Nuestras Redes Sociales</h1>
           </div>
           <div class="row">
-            <div class="col">   
+            <div class="col-md-6">   
               <div class="row">
                   <img src="icon/facebook.png">
                   <label>Seguinos en Facebook</label>
@@ -26,7 +26,7 @@
                   <label>Seguinos en Instagram</label>
               </div>
             </div>      
-            <div class="col">
+            <div class="col-md-6">
               <div class="row">
                   <img src="icon/google-plus.png">
                   <label>Seguinos en Google+</label>
@@ -39,7 +39,7 @@
           </div>  
         </div>
         
-        <div class="container">
+        <div class="col-md-4 mr-6">
           <h1>Información de Contacto</h1>
           <div class="row">
             <img src="icon/house.png">
