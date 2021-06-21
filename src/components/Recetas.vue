@@ -1,7 +1,11 @@
 <template>
 
   <section class="src-components-recetas">
-    <h1>src-components-recetas Component</h1>
+    <div class="p-3 mb-2 bg-light text-dark">
+      <br>
+      <h2 class="font text-center">Recetas</h2>
+      <br>
+    </div>
   </section>
 
 </template>
@@ -33,5 +37,12 @@
 <style scoped lang="css">
   .src-components-recetas {
 
+  }
+  .font{
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  #div{
+    background-color: e0e1e2;
   }
 </style>

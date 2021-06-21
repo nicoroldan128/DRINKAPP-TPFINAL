@@ -10,9 +10,6 @@
           <router-link to="/">
             <a class="nav-link" href="#">Home</a>
           </router-link>
-          <router-link to="/categorias">
-            <a class="nav-link" href="#" style="text-decoration: none">Categorias</a>
-          </router-link>
           <router-link to="/productos">
             <a class="nav-link" href="#">Productos</a>
           </router-link>
