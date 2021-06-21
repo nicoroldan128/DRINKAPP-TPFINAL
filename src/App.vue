@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <Banner />
-    <Navbar />
-    <router-view></router-view>
-    <Footer />
+      <Banner />
+      <Navbar />
+      <router-view></router-view>
+      <Footer />
   </div>
+  
 </template>
 
 <script>
@@ -24,7 +25,11 @@ export default {
 
 <style>
 #app {
- 
+  background-color:e0e1e2;
+}
+h1  {
+  color: black;
 }
 
 </style>
+
