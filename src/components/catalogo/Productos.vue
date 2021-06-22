@@ -7,13 +7,19 @@
         <h2 class="font text-center">Catalogo de productos</h2>
         <br>
       </div>
+      <div class="input-group">
+        <input type="text" class="form-control col-6 m-1" v-model="criterioDeBusqueda" placeholder="Buscar Producto">
+        <select name="bebidas" class="form-control col-3 m-1" v-model="busquedaPorCategoria">
+          <option v-for="categoria in categorias" :key="categoria.id" :categ="categoria">{{categoria}}</option>
+        </select>
+      </div>
 
       <h3 v-if="!mostrarProductos.length" class="alert alert-danger">
         No hay Productos para mostrar
       </h3>
 
         <div class="card-deck">
-          <Producto v-for="producto in mostrarProductos" 
+          <Producto v-for="producto in productosFiltrados" 
             :key="producto.id"
             :producto="producto"/>
         </div>
@@ -37,14 +43,16 @@
     },
     data () {
       return {
-
+        criterioDeBusqueda: '',
+        busquedaPorCategoria: '',
+        categorias: ['', 'Licor', 'Gaseosa', 'Gin', 'Ron','Vodka', 'Whisky']
       }
     },
     methods: {
 
     },
     computed: {
-
+      
     }
   }
 
@@ -59,7 +67,11 @@
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
   }
-  /* #div{
-    background-color: e0e1e2;
-  } */
+
+  .input-group{
+    margin: 10px;
+    width: 50%;
+  }
+  
+
 </style>

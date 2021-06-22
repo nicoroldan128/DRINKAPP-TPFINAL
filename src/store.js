@@ -8,7 +8,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
-        productos : []
+        productos : []   
     },
     actions:{
         async getProductos({commit}){
@@ -24,6 +24,6 @@ export default new Vuex.Store({
     mutations:{
         getProductos(state,productos) {
             state.productos = productos
-        },
+        }
     }
 })
