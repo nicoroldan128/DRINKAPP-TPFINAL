@@ -2,21 +2,16 @@
 
    <section class="src-components-producto">
 
-    <!-- <div class="media alert alert-primary">
-      <img :src="producto.imagen" :style="{width:'150px', borderRadius:'15px'}" :alt="producto.id">
-      <div class="media-body ml-3">
-        <p><u>Producto {{producto.name}}</u></p>
-        <p><b>$ {{producto.price}}</b></p>
-      </div>
-    </div> -->
-
-    <div class="card border-dark mb-3" style="max-width: 25rem;">
-      <img class="card-img-top" :src="producto.imagen" :style="{width:'300px', borderRadius:'15px'}" alt="Card image cap">
+    <div class="card border-dark mb-3 mr-3" style="max-width: 20rem;">
+            <img class="card-img-top" :src="producto.imagen" :style="{width:'300px', borderRadius:'30px'}" alt="Card image cap">
       <div class="card-body">
+  
         <h5 class="card-title"><b>{{producto.name}}</b></h5>
-        <p class="card-text">$ {{producto.price}}</p>
-        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+        <p class="card-text">$ {{producto.price}}</p>   
+        <a href="#" class="btn btn-success mr-4 mb-3">Agregar al carrito</a>
+      <a href="#" class="btn btn-warning mb-3">Ver Detalle</a>   
       </div>
+      
     </div>
 
   </section>
@@ -52,13 +47,19 @@
   }
   .card-title{
     text-align: center;
-    font-size: 28px;
+    font-size: 22px;
   }
   .card-text{
-    font-size: 22px;
+    font-size: 24px;
     text-align: center;
   }
   .card{
     display: flex;
+    height: 50vh;
+  }
+
+  img{
+    height: 30vh;
+    margin: 15px;
   }
 </style>

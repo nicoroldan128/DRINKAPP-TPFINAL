@@ -7,7 +7,7 @@
           <p>Somos la mejor alternativa para la compra de tus bebidas favoritas.</p>
         </div>
         
-        <div class="col-md-4 ">
+        <div class="col-md-4">
           <div class="row">
             <h1>Nuestras Redes Sociales</h1>
           </div>
@@ -39,7 +39,7 @@
           </div>  
         </div>
         
-        <div class="col-md-4 mr-6">
+        <div class="col-md-4">
           <h1>Información de Contacto</h1>
           <div class="row">
             <img src="icon/house.png">

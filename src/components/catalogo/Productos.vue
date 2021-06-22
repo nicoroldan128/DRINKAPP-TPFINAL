@@ -2,13 +2,14 @@
 
   <section class="src-components-productos">
     <br>
-    <h2>Catalogo de productos</h2>
+    
+    <h2>Nuestro Catalogo de Productos</h2>
 
     <h3 v-if="!mostrarProductos.length" class="alert alert-danger">
       No hay Productos para mostrar
     </h3>
 
-      <div class="card-deck">
+      <div class="card-deck m-5">
         <Producto v-for="producto in mostrarProductos" 
           :key="producto.id"
           :producto="producto"/>
@@ -48,5 +49,8 @@
 <style scoped lang="css">
   .src-components-productos {
 
+  }
+  h2{
+    text-align: center;
   }
 </style>
