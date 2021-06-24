@@ -19,9 +19,10 @@
           <router-link to="/carrito">
             <a class="nav-link" href="#">Carrito</a>
           </router-link>
-          <router-link to="/login">
-            <a class="nav-link" href="#">Log in</a>
+          <router-link to="/formulario">
+            <a class="nav-link" href="#">Log In</a>
           </router-link>
+
         </div>
       </div>
     </nav>
