@@ -5,6 +5,9 @@ var miMixin = {
         mostrarProductos() {
             return this.$store.state.productos
         },
+        mostrarCarrito() {
+            return this.$store.state.carrito
+        },
         productosFiltrados(){
             return this.$store.state.productos.filter((producto) =>{
                 let nombreProducto = producto.name

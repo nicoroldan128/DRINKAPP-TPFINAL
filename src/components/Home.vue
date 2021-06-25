@@ -1,21 +1,17 @@
 <template>
 
   <section class="src-components-home">
-    <div class="p-3 mb-2 bg-light text-dark">
-      <br>
-      <h2 class="font text-center"><strong>¡Bienvenidos DrinkApp!</strong></h2>
-      <br>
-      
+    <div class="p-3 mb-2 bg-light text-dark"> 
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-70" src="https://onlinelicor.es/wp-content/uploads/2021/03/ABSOLUT-WATERMELON.jpg" width="2048" height="700" alt="Absolut - edición especial">
+            <img class="d-block w-70" src="https://onlinelicor.es/wp-content/uploads/2021/03/ABSOLUT-WATERMELON.jpg" width="2048" height="480" alt="Absolut - edición especial">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-70"  src="https://gatopardo.com/wp-content/uploads/2020/10/cuervo-muertos.jpg" width="2048" height="700" alt="Jose Cuervo - edición especial">
+            <img class="d-block w-70"  src="https://gatopardo.com/wp-content/uploads/2020/10/cuervo-muertos.jpg" width="2048" height="480" alt="Jose Cuervo - edición especial">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-70" src="https://cdn.forbes.com.mx/2019/03/JW4A_1280.jpg" width="2048" height="700" alt="Johnnie walker - edición especial">
+            <img class="d-block w-70" src="https://cdn.forbes.com.mx/2019/03/JW4A_1280.jpg" width="2048" height="480" alt="Johnnie walker - edición especial">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

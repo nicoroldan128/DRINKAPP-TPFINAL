@@ -8,7 +8,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
-        productos : []   
+        productos : [],
+        carrito:[]   
     },
     actions:{
         async getProductos({commit}){
@@ -19,11 +20,26 @@ export default new Vuex.Store({
             catch (err){
                 commit('getProductos',[])
             }
+        },
+        addProducto({commit}, producto){
+            try{
+                commit('addProducto', producto)
+            } catch(err){
+                commit('addProducto','')
+            }
         }
     },
     mutations:{
         getProductos(state,productos) {
             state.productos = productos
-        }
+        },
+        addProducto(state,producto){
+            state.carrito.push(producto)
+            console.log(state.carrito);
+            localStorage.setItem('carrito',JSON.stringify(state.carrito));
+
+        },
+        
     }
 })
+
