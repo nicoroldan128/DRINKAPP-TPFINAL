@@ -1,15 +1,15 @@
 <template>
 
-  <section class="formulario">
-    <div class="jumbotron">
-       <h2 class="font text-center">¡Bienvenido! </h2>
+  <section class="src-components-formulario">
+    <!-- <div class="jumbotron"> -->
       <br>
-      <h5 class="font text-center" style="font-size: 35px">Podes iniciar tu sesión acá </h5>
-      <hr>
+      <h5 class="font text-center" style="font-size: 35px">Podes registrarte acá</h5>
+      <br>
+      <h5 class="font text-center" style="font-size: 30px">Ingresa tus datos</h5>
       <br>
       <vue-form :state="formState" @submit.prevent="enviar()">
-        <div>
-            <validate tag="div">
+        <div class="container">
+            <validate tag="div" >
               <label for="name" >Nombre</label>
               <input 
               type="text" 
@@ -21,9 +21,10 @@
               :minlength="nameMin"
               :maxlength="nameMax"
               autocomplete="off"
+              
               >
               <field-messages name="name" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
+                <div slot="required" class="alert alert-danger mt-2 ml-1">Campo requerido</div>
                 <div slot="minlength" class="alert alert-danger mt-2">
                   Ingrese al menos {{this.nameMin}} caracteres
                 </div>
@@ -45,6 +46,7 @@
               :minlength="nameMin"
               :maxlength="nameMax"
               autocomplete="off"
+              
               >
               <field-messages name="apellido" show="$dirty">
                 <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
@@ -83,24 +85,17 @@
             <validate tag="div">
               <label for="fechaDeNacimiento" >Fecha de nacimiento</label>
               <input 
-              type="text" 
+              type="date" 
               name="fechaDeNacimiento" 
               id="fechaDeNacimiento"   
               class="form-control"
               v-model.trim="formData.fechaDeNacimiento"
               required
-              :minlength="fechaMinMax"
-              :maxlength="fechaMinMax"
               autocomplete="off"
+              
               >
               <field-messages name="fechaDeNacimiento" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
-                <div slot="minlength" class="alert alert-danger mt-2">
-                  Ingrese al menos {{this.nameMin}} caracteres
-                </div>
-                <div v-if="formData.fechaDeNacimiento.length < fechaMinMax" class="alert alert-warning mt-2">
-                  Ingrese menos de {{this.fechaMinMax}} caracteres
-                </div>
+                <div slot="required" class="alert alert-danger mt-2">Ingrese la fecha dd-mm-aaaa</div>
               </field-messages>
             </validate>
             
@@ -117,6 +112,7 @@
               :min="ageMin"
               :max="ageMax"
               autocomplete="off"
+              
               >
               <field-messages name="age" show="$dirty">
                 <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
@@ -140,37 +136,43 @@
               v-model.trim="formData.email"
               required
               autocomplete="off"
+              
               >
-              <field-messages name="email" show="$dirty">
+              <field-messages name="email" show="$dirty" >
                 <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
                 <div slot="email" class="alert alert-danger mt-2">Email invalido</div>
               </field-messages>
             </validate>
 
-            
+
             <validate tag="div">
-              <label for="medioDePago" >Medio de Pago</label>
+              <label for="password" >Contraseña</label>
               <input 
-              type="medioDePago" 
-              name="medioDePago" 
-              id="medioDepago"   
+              type="password" 
+              name="password" 
+              id="password"   
               class="form-control"
-              v-model.trim="formData.medioDePago"
+              v-model.trim="formData.password"
               required
-              autocomplete="off"
+              :min="contraseniaMin"
+              autocomplete="off" 
+              
               >
-              <field-messages name="medioDeaPago" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
+              <field-messages name="password" show="$dirty">
+                <div slot="required" class="alert alert-danger mt-2">Ingrese una contraseña. La misma tiene que contener una mayúscula, un número y un símbolo (!#$%&/)</div>
+                <div slot="min" class="alert alert-danger mt-2">
+                  Ingrese al menos {{this.contraseniaMin}} caracteres
+                </div>                
               </field-messages>
-            </validate>  
+            </validate>
         </div>
-        <button class="btn margin-right" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="enviar()">Finalizar compra </button>
+        <button class="btn margin-right" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="enviar()">Finalizar registro </button>
 
          <button class="btn margin-left" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" >Ir al carrito</button>
         <!-- <pre>{{formData}}</pre> -->
       
       </vue-form>
-    </div>    
+    <!-- </div>  -->   
   </section>
 
 </template>
@@ -187,10 +189,11 @@
         formState:{},
         nameMin:3,
         nameMax:15,
-        fechaMinMax: 10,
+        /* fechaMinMax: 10, */
         dniMinMax: 8,
         ageMax:120,
         ageMin:18,
+        contraseniaMin:8,
         postUrl:'https://60b6e23917d1dc0017b8878b.mockapi.io/usuarios'
       }
     },
@@ -237,14 +240,11 @@
 </script>
 
 <style scoped lang="css">
-.jumbotron{
-  background-color: #fffff6;
-}
-.margin-left{
-    margin-left: 400px !important;
-}
-.margin-right{
-    margin-left: 400px !important;
+
+button{
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 550px;
 }
 hr{
   background-color: #000000;
@@ -258,5 +258,25 @@ pre{
 }
 div{
   margin-bottom: 30px;
+  margin-left: 300px;
 }
+.alert-danger{
+  margin-left: -300px;
+  height: 3.5em;
+  width:700px;
+}
+.font{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-control{
+  height: 3.5em;
+  width:700px;
+} 
+
+.src-components-formulario{
+  background-color: #e0e1e2;
+}
+
 </style>
