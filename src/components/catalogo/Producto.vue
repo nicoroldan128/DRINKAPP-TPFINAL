@@ -21,15 +21,15 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel" :style="{position: 'se'}">{{producto.name}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-               <img class="card-img-top" :src="producto.imagen" :style="{width:'300px', borderRadius:'30px'}" alt="Card image cap">
-               <h5 class="card-title"><b>{{producto.name}}</b></h5>
-                <p class="card-text mb-0">{{producto.description}}</p>     
+               <img class="card-img-top" :src="producto.imagen" :style="{width:'300px', 'margin-left':'85px' ,borderRadius:'30px'}" alt="Card image cap">
+               <h5 class="card-title"><b>Descripción</b></h5>
+                <p class="card-text mb-0" :style="{'font-size': '15px'}">{{producto.description}}</p>     
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
