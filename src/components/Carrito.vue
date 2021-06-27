@@ -30,7 +30,7 @@
           </div>
         </div>
         <br>
-        <div class="row align-items-end">
+        <div v-if="mostrarCarrito.length != 0" class="row align-items-end">
           <div class="col-md-4">
             <p style="font-size:22px">Productos agregados {{mostrarCarrito.length}} unidades</p>
           </div>
@@ -38,6 +38,11 @@
             <p style="font-size:22px"><strong>Total $ {{calcularTotal(mostrarCarrito)}}</strong></p>
           </div>
           
+        </div>
+        <div v-else>
+          <div class="alert alert-dark" role="alert">
+            No tiene productos en el carrito
+          </div>
         </div>
           
        </div> 
