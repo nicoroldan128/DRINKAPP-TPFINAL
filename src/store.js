@@ -38,7 +38,7 @@ export default new Vuex.Store({
             console.log(state.carrito);
             localStorage.setItem('carrito',JSON.stringify(state.carrito));
 
-        },
+        }
         
     }
 })

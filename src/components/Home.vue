@@ -31,57 +31,59 @@
       </div>
 
       <div class="card-columns">
-        <div class="card text-white text-right bg-dark mb-3">
-          <blockquote class="blockquote mb-0 card-body">
-            <p><strong>Tenemos promociones para regalos empresariales</strong></p>
-            <footer class="blockquote-footer">
-              <small class="text-muted">
-                Consultá por promos para empresas <cite title="Source Title">Aquí</cite>
-              </small>
-            </footer> 
-          </blockquote>
-        </div>
+        <router-link to="/productos">
+          <div class="card text-white text-right bg-dark mb-3" @click="irACatalogo()">
+            <blockquote class="blockquote mb-0 card-body">
+              <p><strong>Tenemos promociones para regalos empresariales</strong></p>
+              <footer class="blockquote-footer">
+                <small class="text-muted">
+                  Consultá por promos para empresas <cite title="Source Title">Aquí</cite>
+                </small>
+              </footer> 
+            </blockquote>
+          </div>
+            
+          <div class="card" >
+            <img src="https://http2.mlstatic.com/D_NQ_NP_2X_731395-MLA40281206226_122019-F.webp" class="card-img-top" alt="Promo4" >
+          </div>
+          
+          <div class="card text-white bg-dark mb-3" style="max-width: 40rem;" >
+            <img src="http://gastronomiars.com.br/wp-content/uploads/2021/02/Aperol-Spitz-foto.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center"><strong>Conocé las promos Aperol</strong></h5>
+            </div>
+          </div>
 
-        <div class="card">
-          <img src="https://http2.mlstatic.com/D_NQ_NP_2X_731395-MLA40281206226_122019-F.webp" class="card-img-top" alt="Promo4" >
-        </div>
+          <div class="card border-dark text-center p-3 " style="max-width: 40rem;" >
+            <blockquote class="blockquote mb-0 mt-3">
+              <p><strong>¡Tenemos ofertas de cerveza!</strong></p>
+            </blockquote>
+          </div>
+
+          <div class="card" >
+            <img src="https://http2.mlstatic.com/D_NQ_NP_794730-MLA43872318921_102020-O.webp" class="card-img" alt="...">
+          </div>
+          
+          <div class="card text-center" >
+            <img src="https://dmrqkbkq8el9i.cloudfront.net/Pictures/1024x536/4/7/1/182471_frxitalianwinekvlayouta4triomedium_539166_crop.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><strong>Especial Freixenet : Contactate para conocer las ofertas y medios de pago</strong></h5>
+            </div>
+          </div>
+
+          <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title"><strong>Fernet Branca con coca</strong>: ¡No nos olvidamos de los clásicos!</h5>
+              <p class="card-text">Esta combinación no puede faltar en la mesa de cada casa</p>
+              <p class="card-text"><small class="text-muted">Averiguá disponibilidad</small></p>
+            </div>
+          </div>
+
+          <div class="card" >
+            <img src="https://www.mendovoz.com/u/fotografias/m/2020/4/3/f1280x720-127798_259473_5050.jpg" class="card-img" alt="...">
+          </div>
+        </router-link>
         
-        <div class="card text-white bg-dark mb-3" style="max-width: 40rem;">
-          <img src="http://gastronomiars.com.br/wp-content/uploads/2021/02/Aperol-Spitz-foto.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title text-center"><strong>Conocé las promos Aperol</strong></h5>
-          </div>
-        </div>
-
-        <div class="card border-dark text-center p-3 " style="max-width: 40rem;">
-          <blockquote class="blockquote mb-0 mt-3">
-            <p><strong>¡Tenemos ofertas de cerveza!</strong></p>
-          </blockquote>
-        </div>
-
-        <div class="card">
-          <img src="https://http2.mlstatic.com/D_NQ_NP_794730-MLA43872318921_102020-O.webp" class="card-img" alt="...">
-        </div>
-        
-        <div class="card text-center">
-          <img src="https://dmrqkbkq8el9i.cloudfront.net/Pictures/1024x536/4/7/1/182471_frxitalianwinekvlayouta4triomedium_539166_crop.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><strong>Especial Freixenet : Contactate para conocer las ofertas y medios de pago</strong></h5>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><strong>Fernet Branca con coca</strong>: ¡No nos olvidamos de los clásicos!</h5>
-            <p class="card-text">Esta combinación no puede faltar en la mesa de cada casa</p>
-            <p class="card-text"><small class="text-muted">Averiguá disponibilidad</small></p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="https://www.mendovoz.com/u/fotografias/m/2020/4/3/f1280x720-127798_259473_5050.jpg" class="card-img" alt="...">
-        </div>
-
       </div>
        
     </div>
@@ -104,7 +106,7 @@
       }
     },
     methods: {
-
+     
     },
     computed: {
 
