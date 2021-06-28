@@ -47,7 +47,7 @@
       return {
         criterioDeBusqueda: '',
         busquedaPorCategoria: '',
-        categorias: ['', 'Licor', 'Gaseosa', 'Gin', 'Ron','Vodka', 'Whisky','Aperitivo','Cervezas','Vinos']
+        categorias: ['', 'Licor', 'Gaseosa', 'Gin', 'Ron','Vodka', 'Whisky','Aperitivo','Cerveza','Vino']
       }
     },
     methods: {

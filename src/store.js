@@ -27,6 +27,13 @@ export default new Vuex.Store({
             } catch(err){
                 commit('addProducto','')
             }
+        },
+        deleteProducto({commit}, producto){
+            try{
+                commit('deleteProducto', producto)
+            }catch(err){
+                this.commit('deleteProducto')
+            }
         }
     },
     mutations:{
@@ -35,9 +42,7 @@ export default new Vuex.Store({
         },
         addProducto(state,producto){
             state.carrito.push(producto)
-            console.log(state.carrito);
             localStorage.setItem('carrito',JSON.stringify(state.carrito));
-
         }
         
     }
