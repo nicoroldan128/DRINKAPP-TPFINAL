@@ -7,7 +7,7 @@
     </fieldset>
 
     <vue-form :state="formState" @submit.prevent="sendDates()">
-      <div class="row mt-4">
+       <div class="row mt-4">
 
           <div class="col-md-4">
             <label for="name">Nombre del ingrediente</label>
@@ -47,7 +47,7 @@
 
 
       </div>
-
+  
     <button class="btn btn-success my-3" :disabled="formState.$invalid" type="submit">Enviar</button>
     
     </vue-form>
@@ -127,4 +127,10 @@
   .recipes {
 
   }
+    .wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 500px
+  }
+   
 </style>

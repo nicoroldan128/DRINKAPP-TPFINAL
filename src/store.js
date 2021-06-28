@@ -44,7 +44,6 @@ export default new Vuex.Store({
             state.carrito.push(producto)
             localStorage.setItem('carrito',JSON.stringify(state.carrito));
         }
-        
     }
 })
 
