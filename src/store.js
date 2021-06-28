@@ -28,9 +28,9 @@ export default new Vuex.Store({
                 commit('addProducto','')
             }
         },
-        deleteProducto({commit}, producto){
+        deleteProducto({commit}, id){
             try{
-                commit('deleteProducto', producto)
+                commit('deleteProducto', id)
             }catch(err){
                 this.commit('deleteProducto')
             }
@@ -41,7 +41,23 @@ export default new Vuex.Store({
             state.productos = productos
         },
         addProducto(state,producto){
-            state.carrito.push(producto)
+            if(!state.carrito.find(prod => prod.producto.id === producto.id)){
+                let item = {producto: producto,
+                            cant: 1}
+                state.carrito.push(item)
+                localStorage.setItem('carrito',JSON.stringify(state.carrito));
+            }else{
+                state.carrito.forEach(prod => {
+                    if(prod.producto.id === producto.id){
+                        prod.cant++;
+                    }
+                } );
+                localStorage.setItem('carrito',JSON.stringify(state.carrito));
+            }
+
+        },
+        deleteProducto(state,id){
+            state.carrito = state.carrito.filter(producto => producto.producto.id !== id);
             localStorage.setItem('carrito',JSON.stringify(state.carrito));
         }
     }

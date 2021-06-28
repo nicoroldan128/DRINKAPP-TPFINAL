@@ -11,19 +11,22 @@
             <div class="container">
               <div class="row align-items-center">
                 <div class="col align-self-start ">
-                  <img class="card-img" :src="producto.imagen" :style="{width:'100px', borderRadius:'10px'}" alt="Card image cap">
+                  <img class="card-img" :src="producto.producto.imagen" :style="{width:'100px', borderRadius:'10px'}" alt="Card image cap">
                 </div>
                 <div class="col align-self-center mb-3 mt-3">
-                  <p class="card-text mr-3 ml-3"><strong>{{producto.name}}</strong></p>
+                  <p class="card-text mr-3 ml-3"><strong>{{producto.producto.name}}</strong></p>
                 </div> 
+                <div class="modal-body text-center">
+                   <h5> Cantidad: {{producto.cant}}</h5>
+               </div>  
                 <div class="col align-self-end ml-5 mb-3 mt-3">
                   <div class="row align-self-end">
-                    <a href="#" class="btn btn-success mr-1 ml-1">Agregar</a>
-                    <a href="#" class="btn btn-danger mr-1 ml-1">Eliminar</a>
+                    <!-- <a href="#" class="btn btn-success mr-1 ml-1">Agregar</a>-->
+                    <a href="#" @click="deleteProducto(producto.producto.id)" class="btn btn-danger mr-1 ml-1">Eliminar</a>
                   </div>
                 </div>
                 <div class="col align-self-end mb-3 mt-3">
-                  <p class="card-text ml-5"><strong>$ {{producto.price}}.-</strong></p>
+                  <p class="card-text ml-5"><strong>$ {{producto.producto.price * producto.cant}}.-</strong></p>
                 </div>
               </div>   
             </div>
@@ -89,10 +92,13 @@
       calcularTotal(mostrarCarrito){
         var sumaProductos=0
         mostrarCarrito.forEach(producto => {
-          var price=producto.price
+          var price= (producto.producto.price * producto.cant)
           sumaProductos+=price
         });
         return sumaProductos
+      },
+      deleteProducto(id){
+        this.$store.dispatch('deleteProducto', id)
       }
     },
     computed: {

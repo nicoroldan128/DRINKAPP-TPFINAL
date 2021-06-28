@@ -6,6 +6,7 @@ var miMixin = {
             return this.$store.state.productos
         },
         mostrarCarrito() {
+            console.log('mostrar carrito en globalmixin' + this.$store.state.carrito);
             return this.$store.state.carrito
         },
         productosFiltrados(){
