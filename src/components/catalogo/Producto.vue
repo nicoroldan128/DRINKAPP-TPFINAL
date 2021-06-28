@@ -12,34 +12,22 @@
         <button type="button" class="btn btn-success mr-2" @click="addProducto(producto)">
           Agregar al Carrito
         </button>
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-          Ver Detalle
-        </button>
-      </div>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel" :style="{position: 'se'}">{{producto.name}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+      <div> 
+        <b-button class="btb btn-warning" @click="getDetalle(modalShow=!modalShow)">Ver Detalle</b-button>
+
+          <b-modal v-model="modalShow">
+            <div>
+              <h2>{{this.detalle.nombre}} - $ {{this.detalle.price}}</h2>
+              <img class="card-img-top" :src="this.detalle.imagen" :style="{width:'300px', borderRadius:'30px'}"/>
+
+              <h3>Descripcion</h3>
+              <p>{{this.detalle.description}}</p>
             </div>
-            <div class="modal-body">
-               <img class="card-img-top" :src="producto.imagen" :style="{width:'300px', 'margin-left':'85px' ,borderRadius:'30px'}" alt="Card image cap">
-               <h5 class="card-title"><b>Descripción</b></h5>
-                <p class="card-text mb-0" :style="{'font-size': '15px'}">{{producto.description}}</p>     
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
+          </b-modal>
+      </div> 
+      
       </div>
     </div>
-
-    
 
   </section>
 
@@ -56,13 +44,26 @@
     },
     data () {
       return {
-
+        detalle :{
+          nombre: '',
+          imagen: '',
+          price: 0,
+          description: ''
+        }
       }
     },
     methods: {
       addProducto(producto){
           console.log(producto); 
           this.$store.dispatch('addProducto', producto)
+      },
+      getDetalle(){
+        this.detalle = {
+          nombre: this.producto.name,
+          imagen: this.producto.imagen,
+          price: this.producto.price,
+          description: this.producto.description
+        }
       }
 
     },
@@ -90,7 +91,7 @@
     height: 50vh;
   }
 
-  img{
+  .card-img-top{
     height: 30vh;
     margin: 15px;
   }
