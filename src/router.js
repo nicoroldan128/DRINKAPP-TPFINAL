@@ -7,6 +7,8 @@ import Carrito from './components/Carrito.vue';
 import Login from './components/Login.vue';
 import Formulario from './components/Formulario.vue';
 import Recipes from './components/Recipes.vue';
+import Resumen from './components/Resumen.vue';
+
 
 Vue.use(VueRouter);
 
@@ -19,6 +21,7 @@ export const router = new VueRouter({
         {path: '/login', component : Login},
         {path: '/', redirect:'/formulario'},
         {path: '/formulario', component: Formulario},
-        {path:'/recetas', component: Recipes} 
+        {path:'/recetas', component: Recipes}, 
+        {path:'/resumen', component: Resumen} 
     ]
 });

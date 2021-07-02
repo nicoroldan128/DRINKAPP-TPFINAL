@@ -41,7 +41,7 @@
             <p style="font-size:22px"><strong>Total $ {{calcularTotal(mostrarCarrito)}}.-</strong></p>
           </div>
           <button type="button" class="btn btn-success offset-md-8" data-toggle="modal" data-target="#exampleModal">
-              Confirmar compra
+              Realizar Pago
           </button>
         </div>
         <div v-else>

@@ -7,7 +7,7 @@
     </fieldset>
 
     <vue-form :state="formState" @submit.prevent="sendDates()">
-       <div class="row mt-4">
+       <!-- <div class="row mt-4">
 
           <div class="col-md-4">
             <label for="name">Nombre del ingrediente</label>
@@ -46,10 +46,50 @@
         </div>
 
 
-      </div>
-  
-    <button class="btn btn-success my-3" :disabled="formState.$invalid" type="submit">Enviar</button>
-    
+      </div> -->
+
+        <div class="container">
+           <div class="row align-items-center ml-8">
+             <div class="col align-self-start mt-1 ml-4">
+               <label for="name" style="font-size:24px"><b>Nombre del ingrediente</b></label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="form-control"
+                  autocomplete="off"
+                  v-model.trim="formData.name"
+                >
+             </div>
+             <div class="col align-self-center mb-1">
+               <label for="name" style="font-size:24px"><b>Categoría</b></label>
+               <select
+                  class="form-control"
+                  id="category"
+                  name="category"
+                  v-model.trim="formData.category"
+                >
+                  <option value="" disabled>Selecciona la categoria</option>
+                  <option value="Ordinary Drink">Trago común</option>
+                  <option value="Cocktail">Cocktail</option>
+                  <option value="Milk / Float / Shake">Shake</option>
+                  <option value="Other/Unknown">Otro</option>
+                  <option value="Cocoa">Coco</option>
+                  <option value="Shot">Shot</option>
+                  <option value="Coffee / Tea">Cafe o Te</option>
+                  <option value="Homemade Liqueur">Licor</option>
+                  <option value="Punch / Party Drink">Bebidas para fiestas</option>
+                  <option value="Beer">Cerveza</option>
+                  <option value="Soft Drink / Soda">Soda</option>
+                </select>
+
+             </div>
+             <div class="col align-self-end mt-4 ml-5">
+               <button class="btn btn-success mt-4 my-2" :disabled="formState.$invalid" type="submit">Enviar</button>
+             </div>
+
+           </div>
+         </div>
     </vue-form>
 
     <div class="card-deck">
@@ -126,6 +166,16 @@
 <style scoped lang="css">
   .recipes {
 
+  }
+
+  .font{
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  .wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 500px
   }
 
    
