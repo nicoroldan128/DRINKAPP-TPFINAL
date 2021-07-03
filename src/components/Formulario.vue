@@ -3,6 +3,8 @@
   <section class="src-components-formulario">
     <!-- <div class="jumbotron"> -->
       <br>
+      <h5 class="font text-center" style="font-size: 35px">Bienvenido {{formData.name | primerLetramayuscula(formData.name)}}</h5>
+      <br>
       <h5 class="font text-center" style="font-size: 35px">Podes registrarte acá</h5>
       <br>
       <h5 class="font text-center" style="font-size: 30px">Ingresa tus datos</h5>
@@ -235,6 +237,13 @@
       }
     }, 
     computed: {
+    },
+    filters:{
+      primerLetramayuscula: function (value) {
+      if (!value) return ''
+      value = value.toString()  
+      return value.charAt(0).toUpperCase() + value.slice(1)
+      }
     }
 }
 </script>
