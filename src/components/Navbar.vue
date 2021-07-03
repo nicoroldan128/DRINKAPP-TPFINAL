@@ -1,7 +1,7 @@
 <template>
 
   <section class="src-components-navbar">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 20px">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,7 +22,6 @@
           <router-link to="/formulario">
             <a class="nav-link" href="#">Log In</a>
           </router-link>
-
         </div>
       </div>
     </nav>

@@ -28,9 +28,9 @@ export default new Vuex.Store({
                 commit('addProducto','')
             }
         },
-        deleteProducto({commit}, id){
+        deleteProducto({commit}, name){
             try{
-                commit('deleteProducto', id)
+                commit('deleteProducto', name)
             }catch(err){
                 this.commit('deleteProducto')
             }
@@ -41,25 +41,35 @@ export default new Vuex.Store({
             state.productos = productos
         },
         addProducto(state,producto){
-            if(!state.carrito.find(prod => prod.producto.id === producto.id)){
+            if(!state.carrito.find(prod => prod.producto.name === producto.name)){
                 let item = {producto: producto,
                             cant: 1}
                 state.carrito.push(item)
                 localStorage.setItem('carrito',JSON.stringify(state.carrito));
             }else{
                 state.carrito.forEach(prod => {
-                    if(prod.producto.id === producto.id){
+                    if(prod.producto.name === producto.name){
                         prod.cant++;
                     }
                 } );
                 localStorage.setItem('carrito',JSON.stringify(state.carrito));
             }
 
-        },
-        deleteProducto(state,id){
-            state.carrito = state.carrito.filter(producto => producto.producto.id !== id);
+        }, 
+        deleteProducto(state,name){
+            state.carrito = state.carrito.filter(producto => producto.producto.name !== name);
             localStorage.setItem('carrito',JSON.stringify(state.carrito));
         }
     }
 })
+
+/* MODIFICACIONES:
+
+*EN STORE:
+- deleteProducto cambien id por name - *no me tomaba los productos // no se el motivo*
+
+*EN CARRITO
+- deleteProducto cambien id por name
+
+*/
 

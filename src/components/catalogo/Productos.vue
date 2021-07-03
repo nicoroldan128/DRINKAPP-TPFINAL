@@ -12,6 +12,9 @@
         <select  name="bebidas" class="form-control col-3 m-1" v-model="busquedaPorCategoria">
            <option v-for="categoria in categorias" :key="categoria.id" :categ="categoria">{{categoria}}</option> 
         </select>
+         <select  name="bebidas" class="form-control col-3 m-1" v-model="ordenarPrecio">
+           <option v-for="o in ordenarDe" :key="o.id" :ord="ord">{{o}}</option> 
+        </select>
       </div>
 
       <h3 v-if="!mostrarProductos.length" class="alert alert-danger">
@@ -47,14 +50,16 @@
       return {
         criterioDeBusqueda: '',
         busquedaPorCategoria: '',
-        categorias: ['', 'Licor', 'Gaseosa', 'Gin', 'Ron','Vodka', 'Whisky','Aperitivo','Cerveza','Vino']
+        ordenarPrecio: '', // se agrego
+        categorias: ['','Aperitivo','Cerveza', 'Gaseosa', 'Gin', 'Licor', 'Ron', 'Tequila', 'Vino', 'Vodka', 'Whisky'],
+        ordenarDe: ['', 'Menor a Mayor', 'Mayor a Menor'] // se agrego
       }
     },
     methods: {
 
     },
     computed: {
-      
+     
     }
   }
 

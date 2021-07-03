@@ -3,7 +3,38 @@ import Vue from 'vue'
 var miMixin = {
     computed : {
         mostrarProductos() {
-            return this.$store.state.productos
+          // la linea original es this.$store.state.productos
+            if(this.ordenarPrecio == 'Menor a Mayor'){
+                return this.$store.state.productos.sort(function (a, b) {
+                    if (a.price > b.price) {
+                      return 1;
+                    }
+                    if (a.price < b.price) {
+                      return -1;
+                    }
+                    return 0;
+                  })
+            }else if(this.ordenarPrecio == 'Mayor a Menor'){
+                return this.$store.state.productos.sort(function (a, b) {
+                    if (b.price > a.price) {
+                      return 1;
+                    }
+                    if (b.price < a.price) {
+                      return -1;
+                    }
+                    return 0;
+                  })
+            }else {
+                return this.$store.state.productos.sort(function (a, b) {
+                  if (a.name > b.name) {
+                    return 1;
+                  }
+                  if (a.name < b.name) {
+                    return -1;
+                  }
+                  return 0;
+                })
+            }     
         },
         mostrarCarrito() {
             console.log('mostrar carrito en globalmixin' + this.$store.state.carrito);
@@ -18,8 +49,7 @@ var miMixin = {
                 let categoria = producto.category
                 return nombreProducto.toLowerCase().includes(this.criterioDeBusqueda.toLowerCase()) && categoria.includes(this.busquedaPorCategoria)
             })
-        }
+        }       
     }
 }
-
 Vue.mixin(miMixin)

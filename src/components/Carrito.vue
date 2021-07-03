@@ -22,7 +22,7 @@
                 <div class="col align-self-end ml-5 mb-3 mt-3">
                   <div class="row align-self-end">
                     <!-- <a href="#" class="btn btn-success mr-1 ml-1">Agregar</a>-->
-                    <a href="#" @click="deleteProducto(producto.producto.id)" class="btn btn-danger mr-1 ml-1">Eliminar</a>
+                    <a href="#" @click="deleteProducto(producto.producto.name)" class="btn btn-danger mr-1 ml-1">Eliminar</a>
                   </div>
                 </div>
                 <div class="col align-self-end mb-3 mt-3">
@@ -40,7 +40,10 @@
           <div class="col-md-4 offset-md-4">
             <p style="font-size:22px"><strong>Total $ {{calcularTotal(mostrarCarrito)}}.-</strong></p>
           </div>
-          <button type="button" class="btn btn-success offset-md-8" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" class="btn btn-danger offset-md-7" data-toggle="modal" >  <!-- usar MODAL Confirm message box https://bootstrap-vue.org/docs/components/modal -->
+              Vaciar Carrito
+          </button>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" :style="{'margin-left': '15px'}">
               Realizar Pago
           </button>
         </div>
