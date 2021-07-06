@@ -13,7 +13,7 @@
            <option v-for="categoria in categorias" :key="categoria.id" :categ="categoria">{{categoria}}</option> 
         </select>
          <select  name="bebidas" class="form-control col-3 m-1" v-model="ordenarPrecio">
-           <option v-for="o in ordenarDe" :key="o.id" :ord="ord">{{o}}</option> 
+           <option v-for="o in ordenarDe" :key="o.id" :ord="o">{{o}}</option> 
         </select>
       </div>
 
