@@ -141,7 +141,7 @@
               
               >
               <field-messages name="email" show="$dirty" >
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
+                <div slot="required" class="alert alert-danger">Campo requerido</div>
                 <div slot="email" class="alert alert-danger mt-2">Email invalido</div>
               </field-messages>
             </validate>

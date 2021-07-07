@@ -50,7 +50,7 @@
 
         <div class="container">
            <div class="row align-items-center ml-8">
-             <div class="col align-self-start mt-1 ml-4">
+             <div class="col-4">
                <label for="name" style="font-size:24px"><b>Nombre del ingrediente</b></label>
                 <input 
                   type="text" 
@@ -61,7 +61,7 @@
                   v-model.trim="formData.name"
                 >
              </div>
-             <div class="col align-self-center mb-1">
+             <div class="col-4">
                <label for="name" style="font-size:24px"><b>Categoría</b></label>
                <select
                   class="form-control"
@@ -84,15 +84,15 @@
                 </select>
 
              </div>
-             <div class="col align-self-end mt-4 ml-5">
-               <button class="btn btn-success mt-4 my-2" :disabled="formState.$invalid" type="submit">Enviar</button>
+             <div class="col-4">
+               <button class="btn btn-success mt-5" :disabled="formState.$invalid" type="submit">Enviar</button>
              </div>
 
            </div>
          </div>
     </vue-form>
 
-    <div class="card-deck">
+    <div class="wrapper">
       <Recipe v-for="receta in recipes"
         :key="receta.idDrink"
         :recipe="receta" />
@@ -174,9 +174,10 @@
   }
   .wrapper{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 2fr);
     grid-auto-rows: 500px
   }
+
 
    
 </style>
