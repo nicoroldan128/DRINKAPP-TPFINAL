@@ -3,7 +3,7 @@
 
     <!-- Card Producto --> 
     <div class="card border-dark mb-3 mr-3" style="max-width: 21rem;">
-            <img class="card-img-top" :src="producto.imagen" :style="{width:'300px', borderRadius:'30px'}" alt="Card image cap">
+            <img class="card-img-top" :src="producto.image" :style="{width:'300px', borderRadius:'30px'}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><b>{{producto.name}}</b></h5>
         <p class="card-text mb-0">$ {{producto.price}}</p>        
@@ -18,7 +18,7 @@
               <b-modal v-model="modalShow" hide-footer>
                 <div>
                   <b-card-title><h3>{{this.detalle.nombre}} - $ {{this.detalle.price}}</h3></b-card-title>
-                  <img class="card-img-top" :src="this.detalle.imagen" :style="{width:'300px', borderRadius:'30px', 'margin-left': '80px'}"/>
+                  <img class="card-img-top" :src="this.detalle.image" :style="{width:'300px', borderRadius:'30px', 'margin-left': '80px'}"/>
                   <b-card-title>
                     <h4>Descripcion</h4>
                   </b-card-title>
@@ -62,7 +62,7 @@
       getDetalle(){
         this.detalle = {
           nombre: this.producto.name,
-          imagen: this.producto.imagen,
+          image: this.producto.image,
           price: this.producto.price,
           description: this.producto.description
         }

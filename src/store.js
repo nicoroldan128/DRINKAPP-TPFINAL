@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 
-const URL_MOCKAPI = 'https://609dba1b33eed80017957056.mockapi.io/productos';
+const URL_MOCKAPI = 'https://drinkapparg.herokuapp.com/api/products';
 
 Vue.use(Vuex);
 
@@ -14,7 +14,7 @@ export default new Vuex.Store({
     actions:{
         async getProductos({commit}){
             try {
-                let {data:productos} = await axios(URL_MOCKAPI)
+                let {data:productos} = await axios.get(URL_MOCKAPI)
                 commit('getProductos',productos)
             }
             catch (err){
