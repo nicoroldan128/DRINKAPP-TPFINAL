@@ -133,4 +133,8 @@ p{
   font-size: 20px;
 }
 
+.btn{
+   margin-bottom: 15px
+}
+
 </style>

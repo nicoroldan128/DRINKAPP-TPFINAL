@@ -2,53 +2,13 @@
 
   <section class="src-components-recipes">
     
-    <fieldset class="text-center">
+    <fieldset class="text-center" style="margin-top: 20px">
       <legend>Busca bebidas por categoria o ingrediente</legend>
     </fieldset>
 
     <vue-form :state="formState" @submit.prevent="sendDates()">
-       <!-- <div class="row mt-4">
-
-          <div class="col-md-4">
-            <label for="name">Nombre del ingrediente</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              class="form-control"
-              autocomplete="off"
-              v-model.trim="formData.name"
-            >
-          </div>
-
-        <div class="col-md-4">
-          <select
-            class="form-control"
-            id="category"
-            name="category"
-            v-model.trim="formData.category"
-          >
-            <option value="" disabled>Selecciona la categoria</option>
-            <option value="Ordinary Drink">Trago común</option>
-            <option value="Cocktail">Cocktail</option>
-            <option value="Milk / Float / Shake">Shake</option>
-            <option value="Other/Unknown">Otro</option>
-            <option value="Cocoa">Coco</option>
-            <option value="Shot">Shot</option>
-            <option value="Coffee / Tea">Cafe o Te</option>
-            <option value="Homemade Liqueur">Licor</option>
-            <option value="Punch / Party Drink">Bebidas para fiestas</option>
-            <option value="Beer">Cerveza</option>
-            <option value="Soft Drink / Soda">Soda</option>
-          </select>
-
-
-        </div>
-
-
-      </div> -->
-
-        <div class="container">
+    
+        <div class="container" style="margin: 40px">
            <div class="row align-items-center ml-8">
              <div class="col-4">
                <label for="name" style="font-size:24px"><b>Nombre del ingrediente</b></label>

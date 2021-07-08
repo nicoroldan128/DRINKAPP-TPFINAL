@@ -4,17 +4,26 @@
     <div class="p-3 mb-2 bg-light text-dark">
       <div>
         <br>
-        <h2 class="font text-center">Catalogo de productos</h2>
+        <h2 class="font text-center">Nuestros productos</h2>
         <br>
       </div>
       <div class="input-group">
-        <input type="text" class="form-control col-6 m-1" v-model="criterioDeBusqueda" placeholder="Buscar Producto">
-        <select  name="bebidas" class="form-control col-3 m-1" v-model="busquedaPorCategoria">
-           <option v-for="categoria in categorias" :key="categoria.id" :categ="categoria">{{categoria}}</option> 
-        </select>
-         <select  name="bebidas" class="form-control col-3 m-1" v-model="ordenarPrecio">
+        <div class="row align-items-center">
+          <label for="name">Buscar por Nombre</label>
+          <input type="text" class="form-control" v-model="criterioDeBusqueda">
+        </div>
+        <div class="row align-items-center">
+          <label for="name">Buscar Por Categoria</label>
+          <select  name="bebidas" class="form-control" v-model="busquedaPorCategoria">
+            <option v-for="categoria in categorias" :key="categoria.id" :categ="categoria">{{categoria}}</option> 
+          </select>
+        </div>
+        <div class="row align-items-center">
+          <label for="name">Ordenar Por Precio</label>
+          <select  name="bebidas" class="form-control" v-model="ordenarPrecio">
            <option v-for="o in ordenarDe" :key="o.id" :ord="o">{{o}}</option> 
-        </select>
+          </select>
+        </div>
       </div>
 
       <h3 v-if="!mostrarProductos.length" class="alert alert-danger">
@@ -50,13 +59,13 @@
       return {
         criterioDeBusqueda: '',
         busquedaPorCategoria: '',
-        ordenarPrecio: '', // se agrego
+        ordenarPrecio: '', 
         categorias: ['','Aperitivo','Cerveza', 'Gaseosa', 'Gin', 'Licor', 'Ron', 'Tequila', 'Vino', 'Vodka', 'Whisky'],
-        ordenarDe: ['', 'Menor a Mayor', 'Mayor a Menor'] // se agrego
+        ordenarDe: ['', 'Menor a Mayor', 'Mayor a Menor']
       }
     },
     methods: {
-
+      
     },
     computed: {
      
@@ -76,9 +85,8 @@
   }
 
   .input-group{
-    margin: 10px;
-    width: 50%;
-   
+    margin: 25px;
+    width: 100%;
   }
 
   .wrapper{
@@ -86,7 +94,24 @@
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 500px
   }
-   
+
+  .row{
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px ;
+  }
+
+  .form-control{
+    width: 200px;
+    margin-left: 0px;
+  }
+
+  label{
+    margin-right: 15px;
+    font-size: 20px;
+  }
+
+
   
 
 </style>
