@@ -11,7 +11,7 @@
             <div class="container">
               <div class="row align-items-center">
                 <div class="col align-self-start ">
-                  <img class="card-img" :src="producto.producto.imagen" :style="{width:'100px', borderRadius:'10px'}" alt="Card image cap">
+                  <img class="card-img" :src="producto.producto.image" :style="{width:'100px', borderRadius:'10px'}" alt="Card image cap">
                 </div>
                 <div class="col align-self-center mb-3 mt-3">
                   <p class="card-text mr-3 ml-3"><strong>{{producto.producto.name}}</strong></p>
