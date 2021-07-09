@@ -37,8 +37,7 @@ var miMixin = {
             }     
         },
         mostrarCarrito() {
-            console.log('mostrar carrito en globalmixin' + this.$store.state.carrito);
-            if(this.$store.state.carrito.length == 0){
+            if(this.$store.state.carrito.length > 0){
                 this.$store.state.carrito = JSON.parse(localStorage.getItem('carrito'));
             }
             return this.$store.state.carrito

@@ -1,6 +1,5 @@
-<template>
 
-  <section class="src-components-formulario">
+<section class="src-components-login-formulario">
     <!-- <div class="jumbotron"> -->
       <br>
       <h5 class="font text-center" style="font-size: 35px">Bienvenido {{formData.name | primerLetramayuscula(formData.name)}}</h5>
@@ -175,117 +174,7 @@
       
       </vue-form>
     <!-- </div>  -->   
-  </section>
+  
 
-</template>
+</section>
 
-<script>
-  export default  {
-    name: 'formulario',
-    props: [],
-    mounted () {
-    },
-    data () {
-      return {
-        formData:this.getInitialData(),
-        formState:{},
-        nameMin:3,
-        nameMax:15,
-        /* fechaMinMax: 10, */
-        dniMinMax: 8,
-        ageMax:120,
-        ageMin:18,
-        contraseniaMin:8,
-        postUrl:'https://60b6e23917d1dc0017b8878b.mockapi.io/usuarios'
-      }
-    },
-    methods: {
-      getInitialData(){
-        return {
-          name:"",
-          apellido:"",
-          dni: "",
-          fechaDeNacimiento: "",
-          age:"",
-          email:"",
-          metodoDePago:"",
-        }
-      },
-      
-      getClass(invalido) {
-          return [
-              {
-                'btn-secondary':invalido,
-                'btn-success':!invalido
-              }
-          ]
-      },
-
-        enviar(){
-        console.log({...this.formData})
-        this.postUser(this.formData)
-        this.formData=this.getInitialData()
-        this.formState._reset()
-      },
-      async postUser(data){
-        try {
-          console.log(data);
-          await this.axios.post(this.postUrl,data,{'content-type':'application/json'})      
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    }, 
-    computed: {
-    },
-    filters:{
-      primerLetramayuscula: function (value) {
-      if (!value) return ''
-      value = value.toString()  
-      return value.charAt(0).toUpperCase() + value.slice(1)
-      }
-    }
-}
-</script>
-
-<style scoped lang="css">
-
-button{
-  margin-top: 30px;
-  margin-bottom: 50px;
-  margin-left: 550px;
-}
-hr{
-  background-color: #000000;
-}
-label{
-  color: #020000;
-}
-pre{
-  background-color: #ffffff;
-  margin-top: 50px;
-}
-div{
-  margin-bottom: 30px;
-  margin-left: 300px;
-}
-.alert-danger{
-  margin-left: -300px;
-  height: 3.5em;
-  width:700px;
-}
-.font{
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.form-control{
-  height: 3.5em;
-  width:700px;
-} 
-
-.src-components-formulario{
-  background-color: #e0e1e2;
-}
-
-</style>

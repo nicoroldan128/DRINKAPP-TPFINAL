@@ -28,12 +28,33 @@ export default new Vuex.Store({
                 commit('addProducto','')
             }
         },
+        aumentarCantidad({commit}, producto){
+            try{
+                commit('aumentarCantidad', producto)
+            } catch(err){
+                commit('aumentarCantidad','')
+            }
+        },
+        disminuirCantidad({commit}, producto){
+            try{
+                commit('disminuirCantidad', producto)
+            } catch(err){
+                commit('disminuirCantidad','')
+            }
+        },
         deleteProducto({commit}, name){
             try{
                 commit('deleteProducto', name)
             }catch(err){
                 this.commit('deleteProducto')
             }
+        },
+        vaciarCarrito({commit}){
+            try{
+                commit('vaciarCarrito')
+            }catch(err){
+                this.commit('vaciarCarrito')
+            } 
         }
     },
     mutations:{
@@ -54,22 +75,35 @@ export default new Vuex.Store({
                 } );
                 localStorage.setItem('carrito',JSON.stringify(state.carrito));
             }
-
+        },
+        aumentarCantidad(state, producto){
+            state.carrito.forEach(prod => {
+                if(prod.producto.name === producto.name){
+                    prod.cant++;
+                    localStorage.setItem('carrito',JSON.stringify(state.carrito)); 
+                }
+            }); 
         }, 
+        disminuirCantidad(state, producto){
+            state.carrito.forEach(prod => {
+                if(prod.producto.name === producto.name){
+                    prod.cant--;
+                    if(prod.cant == 0){
+                        state.carrito = state.carrito.filter(producto => producto.producto.name !== prod.producto.name);
+                    }
+                }         
+            });
+            localStorage.setItem('carrito',JSON.stringify(state.carrito));
+        },
         deleteProducto(state,name){
             state.carrito = state.carrito.filter(producto => producto.producto.name !== name);
             localStorage.setItem('carrito',JSON.stringify(state.carrito));
+        },
+
+        vaciarCarrito(state){
+            state.carrito = []
+            //localStorage.clear()
         }
     }
 })
-
-/* MODIFICACIONES:
-
-*EN STORE:
-- deleteProducto cambien id por name - *no me tomaba los productos // no se el motivo*
-
-*EN CARRITO
-- deleteProducto cambien id por name
-
-*/
 

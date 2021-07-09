@@ -30,8 +30,6 @@ import './httpClient';
 
 Vue.config.productionTip = false
 
-
-
 new Vue({
   router,
   store,

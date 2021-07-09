@@ -5,8 +5,8 @@ import Home from './components/Home.vue';
 import Productos from './components/catalogo/Productos.vue';
 import Carrito from './components/Carrito.vue';
 import Login from './components/Login.vue';
-import Formulario from './components/Formulario.vue';
-import Recipes from './components/Recipes.vue';
+import Formulario from './components/login/Formulario/index.vue';
+import Recipes from './components/recetas/Recipes.vue';
 import Resumen from './components/Resumen.vue';
 
 
