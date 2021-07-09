@@ -2,63 +2,70 @@
   <section class="src-components-carrito">
     <div class="p-3 mb-2 bg-light text-dark">
       <br>
-      <h2 class="font text-center">Tu carrito de compras</h2>
+      <h2 class="font text-center">Tu Carrito de Compras</h2>
       <br>
 
-      <div class="container">
-        <div class="card text-dark bg-light mb-3" style="max-width: 60rem;" v-for=" producto in mostrarCarrito" :key="producto.id" :producto="producto">
-          <div class="card-body" :style="{padding: '0.25rem'}">
-            <div class="container" :style="{'max-width': '1000px'}">
-              <div class="row align-items-center">
-                <div class="col align-self-start ">
+      <div class="wrapper" v-if="mostrarCarrito.length != 0">
+        <div  class="col-8">
+          <div class="card text-dark bg-light mb-3 ml-5" style="max-width: 60rem;" v-for=" producto in mostrarCarrito" :key="producto.id" :producto="producto">
+            <div class="card-body" :style="{padding: '0.0rem'}">
+            <div class="row align-items-center">
+                <div class="col-2">
                   <img class="card-img" :src="producto.producto.image" :style="{width:'100px', borderRadius:'10px', margin:'15px'}" alt="Card image cap">
                 </div>
-                <div class="col align-self-center mb-3 mt-3">
-                  <h5 class="card-text mb-3"><strong>{{producto.producto.name}}</strong></h5>
-                </div> 
-                <div class="modal-body text-center">
-                  <h5> Cantidad: {{producto.cant}}</h5>
-                </div>  
-                <div class="row align-self-center ml-5 mb-3 mt-3">
-                 
-                    <div>
-                       <a href="#" @click="aumentarCantidad(producto.producto)" class="btn btn-success mr-2">+</a>
-                    </div>
-                   <div>
-                      <a href="#" @click="disminuirCantidad(producto.producto)" class="btn btn-danger mr-2">-</a>
-                   </div>
-                    <div>
-                      <a href="#" @click="deleteProducto(producto.producto.name)" class="btn btn-danger mr-4">Eliminar</a>
-                    </div>    
+                <div class="col-2">
+                  <h5 class="card-text"><strong>{{producto.producto.name}}</strong></h5>
                 </div>
-
-                <div class="col align-self-center mb-3 mt-3 ml-4">
+                <div class="col-2">
+                  <div class="row">
+                    <h5>Cantidad</h5>
+                  </div>  
+                  <div class="row">
+                    <a href="#" @click="disminuirCantidad(producto.producto)"><b-icon icon="dash" :style="{'margin-left': '5px', 'margin-right': '15px', 'font-size': '20px'}"></b-icon></a>
+                    <h5>{{producto.cant}}</h5>
+                    <a href="#" @click="aumentarCantidad(producto.producto)"><b-icon  icon="plus" :style="{'margin-left': '15px', 'margin-right': '10px', 'font-size': '20px'}"></b-icon></a>  
+                  </div>
+                </div>
+                  <div class="col-2">
+                    <h5>Precio unid.</h5>
+                    <p class="card-text"><strong>$ {{producto.producto.price}}.-</strong></p>
+                  </div>
+                <div class="col-2">
+                  <h5>SubTotal</h5>
                   <p class="card-text"><strong>$ {{producto.producto.price * producto.cant}}.-</strong></p>
                 </div>
-              </div>   
-            </div>
-          </div>
+                <div class="col-2">
+                    <a href="#" @click="deleteProducto(producto.producto.name)"><b-icon icon="trash" class="h3"></b-icon></a>
+                </div>
+              </div>  
+            </div>  
+          </div> 
         </div>
-        <div v-if="mostrarCarrito.length != 0 " class="row align-items-end">
-          <div class="col align-self-center ml-5 ">
-            <p style="font-size:22px">Productos agregados {{mostrarCarrito.length}} {{mostrarCarrito.length == 1 ? 'unidad' : 'unidades'}}</p>
-          </div>
-          <div class="col align-content-center offset-md-2">
-            <p style="font-size:22px"><strong>Total a Pagar ${{calcularTotal(mostrarCarrito)}}.-</strong></p>
-          </div>
-          <button type="button" class="btn btn-danger offset-md-7" data-toggle="modal" @click="vaciarCarrito()" >  <!-- usar MODAL Confirm message box https://bootstrap-vue.org/docs/components/modal -->
-              Vaciar Carrito
-          </button>
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" :style="{'margin-left': '15px'}">
+          <div class="col-4">
+
+            <div class="col" >
+              <p style="font-size:22px">Productos agregados {{mostrarCarrito.length}} {{mostrarCarrito.length == 1 ? 'unidad' : 'unidades'}}</p>
+              <div >
+                <p style="font-size:22px"><strong>Total a Pagar ${{calcularTotal(mostrarCarrito)}}.-</strong></p>
+              </div>
+               <b-button type="button" class="btn btn-danger" @click="vaciarCarrito">Vaciar Carrito</b-button>
+    
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" :style="{'margin-left': '15px'}">
               Realizar Pago
-          </button>
+              </button>
+            </div>
         </div>
-        <div v-else>
-          <div class="alert alert-dark" role="alert">
-            No tiene productos en el carrito
-          </div>
+          
+        
+      </div>
+      <div v-else>
+        <div class="alert alert-dark text-center" role="alert">
+        <h5>No tiene productos en el Carrito</h5>
         </div>
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      </div>
+    </div>
+        
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -75,11 +82,9 @@
                 </div>
               </div>
             </div>
-        </div>
-      </div> 
-      <br>
     </div>
-    
+     
+ 
   </section>
 </template>
 
@@ -93,7 +98,7 @@
     },
     data () {
       return {
-
+       
       }
     },
     methods: {
@@ -109,7 +114,15 @@
         this.$store.dispatch('deleteProducto', name)
       },
       vaciarCarrito(){
-        this.$store.dispatch('vaciarCarrito')
+        this.$bvModal.msgBoxConfirm('¿Esta seguro?')
+          .then(value => {
+            if(value){
+              this.$store.dispatch('vaciarCarrito')
+            }         
+          })
+          .catch(err => {
+            console.log(err);
+          })
       },
       addProducto(producto){
           this.$store.dispatch('addProducto', producto)
@@ -119,7 +132,7 @@
       },
       disminuirCantidad(producto){
           this.$store.dispatch('disminuirCantidad', producto)
-      }
+      } 
     },
     computed: {
 
@@ -140,20 +153,17 @@
 
   .wrapper{
       display: flex;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 50px;
-      /* justify-content:center; */
-      
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 160px;
   }
 
   p{
     font-size: 20px;
   }
 
-  .btn{
-    margin-bottom: 0px
+  .row{
+    margin-right: 1px;
+    margin-left: 1px;
   }
-
-
 
 </style>

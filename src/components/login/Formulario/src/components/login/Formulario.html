@@ -2,7 +2,7 @@
 <section class="src-components-login-formulario">
     <!-- <div class="jumbotron"> -->
       <br>
-      <h5 class="font text-center" style="font-size: 35px">Bienvenido {{formData.name | primerLetramayuscula(formData.name)}}</h5>
+      <h5 class="font text-center" style="font-size: 35px">Bienvenido {{formData.name | primerLetramayuscula}}</h5>
       <br>
       <h5 class="font text-center" style="font-size: 35px">Podes registrarte acá</h5>
       <br>
@@ -25,7 +25,7 @@
               
               >
               <field-messages name="name" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2 ml-1">Campo requerido</div>
+                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
                 <div slot="minlength" class="alert alert-danger mt-2">
                   Ingrese al menos {{this.nameMin}} caracteres
                 </div>
