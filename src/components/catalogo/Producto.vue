@@ -26,8 +26,10 @@
                 </div>
                 <div>
                   <b-button :style="{'margin-left': '80px', 'margin-top': '15px', 'margin-bottom': '10px' }" variant="success" @click="addProducto(producto)">Agregar al Carrito</b-button>
-                  <!-- Revisar porque motivo al apretar el btn se vacia el carrito -->
-                  <b-button :style="{'margin-left': '40px', 'margin-top': '15px', 'margin-bottom': '10px'}" variant="primary" href="/carrito">Ir al Carrito</b-button> 
+                  
+                  <router-link to="/carrito">
+                    <b-button :style="{'margin-left': '40px', 'margin-top': '15px', 'margin-bottom': '10px'}" variant="primary" >Ir al Carrito</b-button> 
+                  </router-link>
                 </div>
               </b-modal> 
         </div> 
