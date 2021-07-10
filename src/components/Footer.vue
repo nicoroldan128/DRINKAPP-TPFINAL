@@ -117,6 +117,7 @@ Las fotos son a modo ilustrativo. La venta de cualquiera de los productos public
     font-size: 22px;
     margin-top: 10px;
     margin-bottom: 20px;
+    color: white;
   }
 
   p {

@@ -11,16 +11,16 @@
             <a class="nav-link" href="#">Home</a>
           </router-link>
           <router-link to="/productos">
-            <a class="nav-link" href="#">Productos</a>
+            <a class="nav-link ml-3" href="#">Productos</a>
           </router-link>
           <router-link to="/recetas">
-            <a class="nav-link" href="#">Recetas</a>
-          </router-link>
-          <router-link to="/carrito">
-            <a class="nav-link" href="#">Carrito</a>
+            <a class="nav-link ml-3" href="#">Recetas</a>
           </router-link>
           <router-link to="/formulario">
-            <a class="nav-link" href="#">Log In</a>
+            <a class="nav-link ml-3" href="#">Log In</a>
+          </router-link>
+          <router-link to="/carrito">
+            <a class="nav-link ml-3" href="#">Carrito <b-icon icon="cart3"></b-icon></a>
           </router-link>
         </div>
       </div>

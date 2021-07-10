@@ -3,10 +3,10 @@
   <section class="src-components-recipes">
     
     <fieldset class="text-center" style="margin-top: 20px">
-      <legend>Busca bebidas por categoria o ingrediente</legend>
+      <h1>Busca Bebidas por Ingrediente y Categoria</h1>
     </fieldset>
 
-    <vue-form :state="formState" @submit.prevent="sendDates()">
+    <vue-form :state="formState" @submit.prevent="sendDates()" >
     
         <div class="container" style="margin: 40px">
            <div class="row align-items-center ml-8">
@@ -45,14 +45,14 @@
 
              </div>
              <div class="col-4">
-               <button class="btn btn-success mt-5" :disabled="formState.$invalid" type="submit">Enviar</button>
+               <button class="btn btn-light mt-5" :disabled="formState.$invalid" type="submit"><b-icon icon="search"></b-icon></button>
              </div>
 
            </div>
          </div>
     </vue-form>
 
-    <div class="wrapper">
+    <div class="wrapper ml-5">
       <Recipe v-for="receta in recipes"
         :key="receta.idDrink"
         :recipe="receta" />
@@ -135,7 +135,7 @@
   .wrapper{
     display: grid;
     grid-template-columns: repeat(5, 2fr);
-    grid-auto-rows: 500px
+    grid-auto-rows: 400px
   }
 
 

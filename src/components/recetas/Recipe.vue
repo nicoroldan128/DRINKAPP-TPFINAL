@@ -2,22 +2,26 @@
 
   <section class="Recipe">
     <div class="card border-dark mb-3" style="max-width: 20rem;">
-      <img class="card-img-top" :src="recipe.strDrinkThumb" :style="{width:'300px', borderRadius:'15px'}" alt="imagen receta">
+      <img class="card-img-top" :src="recipe.strDrinkThumb" :style="{width:'285px', borderRadius:'15px'}" alt="imagen receta">
       <div class="card-body">
         <h5 class="card-title"><b>{{recipe.strDrink}}</b></h5>
 
         <div>
-          <b-button @click="getRecipe">Ver receta</b-button>
+          <b-button block variant="info" @click="getRecipe">Ver Receta</b-button>
 
-          <b-modal v-model="modalShow">
+          <b-modal v-model="modalShow" hide-footer>
             <div>
-              <h2>{{this.drink.strDrink}}</h2>
-              <h3 class="mt-4">Instrucciones</h3>
-              <p>{{this.drink.strInstructions}}</p>
-              <img class="card-img-top" :src="drink.strDrinkThumb" />
-
-              <h3>Ingredientes y cantidades</h3>
-              <div v-for="(ingredient,index) in ingredients" :key="index">
+              <b-card-title><h3>{{this.drink.strDrink}}</h3></b-card-title>
+              <img class="card-img-top" :src="drink.strDrinkThumb" :style="{width:'285px', borderRadius:'20px', 'margin-left': '90px'}"/>
+              <b-card-title>
+                <h3 class="mt-2">Instrucciones</h3>
+              </b-card-title>
+              <p :style="{margin: '10px'}">{{this.drink.strInstructions}}</p>
+              <br>
+               <b-card-title>
+                <h4>Ingredientes y cantidades</h4>
+              </b-card-title>
+              <div class="card-text" v-for="(ingredient,index) in ingredients" :key="index">
                 <ul>{{ingredient}}</ul>
               </div>
             </div>
@@ -83,13 +87,22 @@
 <style scoped lang="css">
   .card-title{
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
   }
   .card-text{
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
+    margin-left: -40px;
   }
   .card{
     display: flex;
+
   }
+   .card-img-top{
+    height: 25vh;
+    margin: 16px;
+    margin-bottom: -10px;
+  }
+
+  
 </style>
