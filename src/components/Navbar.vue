@@ -10,6 +10,9 @@
           <router-link to="/">
             <a class="nav-link" href="#">Home</a>
           </router-link>
+          <router-link to="/login">
+            <a class="nav-link ml-3" href="#">Login</a>
+          </router-link>
           <router-link to="/productos">
             <a class="nav-link ml-3" href="#">Productos</a>
           </router-link>
@@ -17,7 +20,7 @@
             <a class="nav-link ml-3" href="#">Recetas</a>
           </router-link>
           <router-link to="/formulario">
-            <a class="nav-link ml-3" href="#">Log In</a>
+            <a class="nav-link ml-3" href="#">Registrarse</a>
           </router-link>
           <router-link to="/carrito">
             <a class="nav-link ml-3" href="#">Carrito <b-icon icon="cart3"></b-icon></a>
