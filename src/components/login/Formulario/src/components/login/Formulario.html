@@ -3,11 +3,8 @@
     <!-- <div class="jumbotron"> -->
       <br>
       <h5 class="font text-center" style="font-size: 35px">Bienvenido {{formData.name | primerLetramayuscula}}</h5>
-      <br>
-      <h5 class="font text-center" style="font-size: 35px">Podes registrarte acá</h5>
-      <br>
       <h5 class="font text-center" style="font-size: 30px">Ingresa tus datos</h5>
-      <br>
+
       <vue-form :state="formState" @submit.prevent="enviar()">
         <div class="container">
             <validate tag="div" >
@@ -167,10 +164,15 @@
               </field-messages>
             </validate>
         </div>
-        <button class="btn margin-right" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="enviar()">Finalizar registro </button>
 
-         <button class="btn margin-left" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" >Ir al carrito</button>
-        <!-- <pre>{{formData}}</pre> -->
+        <div style="width: fit-content">
+          <button class="btn margin-right" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="enviar()">Registrarme </button>
+
+          <button class="btn margin-left" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" >Ir al carrito</button>
+
+        </div>
+
+        
       
       </vue-form>
     <!-- </div>  -->   

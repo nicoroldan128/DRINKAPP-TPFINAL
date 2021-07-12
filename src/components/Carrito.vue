@@ -121,7 +121,16 @@
         this.$store.dispatch('deleteProducto', name)
       },
       vaciarCarrito(){
-        this.$bvModal.msgBoxConfirm('¿Está seguro?')
+        this.$bvModal.msgBoxConfirm('¿Está seguro?',{
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'danger',
+          okTitle: 'SI',
+          cancelTitle: 'NO',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
           .then(value => {
             if(value){
               this.$store.dispatch('vaciarCarrito')

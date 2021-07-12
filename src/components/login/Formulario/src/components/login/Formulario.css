@@ -3,9 +3,11 @@
 }
 
 button{
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 50px;
-    margin-left: 455px;
+    margin-left: 10px;
+    margin-right: 50px;
+
 }
 
 hr{
@@ -13,20 +15,17 @@ hr{
 }
 label{
     color: #020000;
+    margin-top: 5px;
 }
-pre{
-    background-color: #ffffff;
-    margin-top: 50px;
-}
+
 div{
-    margin-bottom: 100px;
-    margin-left: 220px;
-    margin-right: 220px;
+    display:block;
+    margin:auto;
+  
 }
 .alert-danger{
-    margin-left: -300px;
-    height: 3.5em;
-    width:700px;
+    display:block;
+    margin:auto;
 }
 .font{
     font-size: 50px;
@@ -34,7 +33,7 @@ div{
 }
 
 .form-control{
-    height: 3.5em;
-    width:700px;
+    display:block;
+    margin:auto;
 } 
   

@@ -6,25 +6,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div class="navbar-nav ml-2">
           <router-link to="/">
             <a class="nav-link" href="#">Home</a>
           </router-link>
-          <router-link to="/login">
-            <a class="nav-link ml-3" href="#">Login</a>
-          </router-link>
           <router-link to="/productos">
-            <a class="nav-link ml-3" href="#">Productos</a>
+            <a class="nav-link ml-2" href="#">Productos</a>
           </router-link>
           <router-link to="/recetas">
-            <a class="nav-link ml-3" href="#">Recetas</a>
-          </router-link>
-          <router-link to="/formulario">
-            <a class="nav-link ml-3" href="#">Registrarse</a>
+            <a class="nav-link ml-2" href="#">Recetas</a>
           </router-link>
           <router-link to="/carrito">
-            <a class="nav-link ml-3" href="#">Carrito <b-icon icon="cart3"></b-icon></a>
+            <a class="nav-link ml-2" href="#">Carrito <b-icon icon="cart3"></b-icon></a>
           </router-link>
+          <router-link to="/login">
+            <a class="nav-link ml-2" href="#">Login</a>
+          </router-link>
+          <router-link to="/formulario">
+            <a class="nav-link ml-2" href="#">Registrarse</a>
+          </router-link>
+
         </div>
       </div>
     </nav>
@@ -62,7 +63,6 @@
      
   }
   .navbar-nav {
-
     position: absolute;
     left: 50%;
     transform: translatex(-50%);
