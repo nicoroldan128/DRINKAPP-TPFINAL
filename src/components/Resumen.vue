@@ -2,6 +2,9 @@
 
  
 <section class="src-components-login-formulario">
+
+      <div v-if="ticket == ''"> 
+
       <br>
       <h5 class="font text-center" style="font-size: 40px">Check Out</h5>
       <h5 class="font text-center" style="font-size: 25px">Ingresa tus datos</h5>
@@ -112,6 +115,21 @@
         </div>
 
       </vue-form>
+   </div>
+   <div v-else>
+   <div>
+    <h1>Tu compra se realizo con Exito</h1> 
+    <br>
+    <h2>N° de Compra: {{this.ticket}}</h2>
+    <br>
+    <h5>Ya Poder retirar tu compra</h5>
+
+   </div>  
+
+
+   </div>
+
+
   </section>
 
 </template>
