@@ -37,3 +37,6 @@ div{
     margin:auto;
 } 
   
+.container{
+    max-width: 620px;
+  }

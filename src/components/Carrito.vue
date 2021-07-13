@@ -48,11 +48,17 @@
               <div >
                 <p style="font-size:22px"><strong>Total a Pagar ${{calcularTotal(mostrarCarrito)}}.-</strong></p>
               </div>
+              <div>
+
+              </div>
                <b-button type="button" class="btn btn-danger" @click="vaciarCarrito">Vaciar Carrito</b-button>
-    
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" :style="{'margin-left': '15px'}">
-              Realizar Pago
-              </button>
+
+              <router-link to="/resumen">
+                <button type="button" class="btn btn-success" :style="{'margin-top': '10px'}">
+                Confirmar Compra
+                </button>
+              </router-link>
+             
             </div>
         </div>
       </div>    
@@ -64,40 +70,7 @@
         <a class="font text-center" href="/productos">Seguir comprando</a>
       </div>
     </div>
-        
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel"><strong>Resumen del pago</strong></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                  <img class="card-img-top" src="https://img.flaticon.com/icons/png/512/34/34627.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" :style="{width:'50px', borderRadius:'5px'}" alt="Card image cap">
-                  
-                  <h5 class="card-text text-center mt-3"><b>Total a Pagar $ {{calcularTotal(mostrarCarrito)}}</b></h5>
-                    <p class="card-text mb-0 text-center">Medio de pago: Efectivo</p>     
-                    <div>
-                      <router-link to="/resumen">
-                      <b-button :style="{'margin-left': '40px', 'margin-top': '15px', 'margin-bottom': '10px'}" variant="primary" >Confirmar compra</b-button> 
-                      </router-link>
-                    </div>     
-                </div>
-                <div class="modal-footer">
-                  <router-link to="/resumen">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Realizar Pago
-                      </button>
-                  </router-link>
-                </div>    
-              </div>
-             
-            </div>
-      </div>
 
-     
- 
   </section>
 </template>
 
