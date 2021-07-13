@@ -79,6 +79,11 @@
                   
                   <h5 class="card-text text-center mt-3"><b>Total a Pagar $ {{calcularTotal(mostrarCarrito)}}</b></h5>
                     <p class="card-text mb-0 text-center">Medio de pago: Efectivo</p>     
+                    <div>
+                      <router-link to="/resumen">
+                      <b-button :style="{'margin-left': '40px', 'margin-top': '15px', 'margin-bottom': '10px'}" variant="primary" >Confirmar compra</b-button> 
+                      </router-link>
+                    </div>     
                 </div>
                 <div class="modal-footer">
                   <router-link to="/resumen">
@@ -89,7 +94,8 @@
               </div>
              
             </div>
-    </div>
+      </div>
+
      
  
   </section>

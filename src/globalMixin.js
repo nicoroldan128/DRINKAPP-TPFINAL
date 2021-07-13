@@ -37,8 +37,10 @@ var miMixin = {
             }     
         },
         mostrarCarrito() {
-            if(this.$store.state.carrito.length > 0){
+            if(this.$store.state.carrito.length == 0 || this.$store.state.carrito.length === null){
+              if(JSON.parse(localStorage.getItem('carrito'))){
                 this.$store.state.carrito = JSON.parse(localStorage.getItem('carrito'));
+              }
             }
             return this.$store.state.carrito
         },
