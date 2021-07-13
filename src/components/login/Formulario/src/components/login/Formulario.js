@@ -46,6 +46,17 @@ export default {
     enviar(){
       console.log({...this.formData})
       this.postUser(this.formData)
+
+      let register = {
+        name:this.formData.name,
+        email:this.formData.email,
+        password:this.formData.password,
+        phone:this.formData.phone,
+        direction:this.formData.direction,
+        dateOfBirth:this.formData.fechaDeNacimiento
+      }
+
+      console.log(register);
       this.formData=this.getInitialData()
       this.formState._reset()
     },
