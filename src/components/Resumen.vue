@@ -3,11 +3,28 @@
  
 <section class="src-components-login-formulario">
 
-      <div v-if="ticket == ''"> 
+      <div style="width: fit-content" v-if="ticket !== ''"> 
+
+        <br>     
+        <h1>Tu compra se realizo con Exito</h1> 
+        <br>
+        <h2>N° de Compra: {{this.ticket}}</h2>
+        <br>
+        <h5>Ya Poder retirar tu compra</h5>
+        <br>
+        <router-link to="/">
+            <button class="btn btn-link margin-left" type="submit" @click="vaciarCarrito">Volver a Home</button> 
+        </router-link>
+          
+
+     </div>
+   <div v-else>
 
       <br>
       <h5 class="font text-center" style="font-size: 40px">Check Out</h5>
       <h5 class="font text-center" style="font-size: 25px">Ingresa tus datos</h5>
+
+     <!-- <div v-if="usuario == null"> -->
 
       <vue-form :state="formState" @submit.prevent="enviar()">
         <div class="container">
@@ -81,6 +98,8 @@
             </validate>
         </div>
 
+        
+
         <div class="table-responsive">
             <table class="table">
               <h5 class="font text-center" :style="{'font-size': '30px', 'margin-top' : '20px'}">Detalle Productos</h5>
@@ -115,18 +134,7 @@
         </div>
 
       </vue-form>
-   </div>
-   <div v-else>
-   <div>
-    <h1>Tu compra se realizo con Exito</h1> 
-    <br>
-    <h2>N° de Compra: {{this.ticket}}</h2>
-    <br>
-    <h5>Ya Poder retirar tu compra</h5>
-
-   </div>  
-
-
+  
    </div>
 
 

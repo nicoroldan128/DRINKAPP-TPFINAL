@@ -45,7 +45,9 @@
             ¿No sos Usuario? <router-link to="/formulario">
             <a href="#"> Registrate aquí</a>
             </router-link>
-             <button class="btn btn-success" style="margin-left: 40px" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="login()">Iniciar sesión</button>
+            <router-link to="/productos">
+              <button class="btn btn-success" style="margin-left: 40px" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="login()">Iniciar sesión</button>
+            </router-link>
           </div>
           <div style="margin-bottom: 70px"></div>
           
