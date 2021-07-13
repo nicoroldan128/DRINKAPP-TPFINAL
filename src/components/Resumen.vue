@@ -183,7 +183,7 @@
             <th>Precio Unitario</th>
             <th>Precio Total</th>
           </tr>
-          <tr class="bg-info text-white" v-for="(producto, index) in mostrarCarrito" :key="index">
+          <tr class="bg-info text-white" v-for="(producto) in mostrarCarrito" :key="producto.producto._id">
             <td>
               <img :src="producto.producto.imagen" width="50" />
             </td>

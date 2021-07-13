@@ -78,11 +78,17 @@
                   <img class="card-img-top" src="https://img.flaticon.com/icons/png/512/34/34627.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" :style="{width:'50px', borderRadius:'5px'}" alt="Card image cap">
                   
                   <h5 class="card-text text-center mt-3"><b>Total $ {{calcularTotal(mostrarCarrito)}}</b></h5>
-                    <p class="card-text mb-0 text-center">Medio de pago: Efectivo</p>     
+                    <p class="card-text mb-0 text-center">Medio de pago: Efectivo</p>
+                    <div>
+                      <router-link to="/resumen">
+                      <b-button :style="{'margin-left': '40px', 'margin-top': '15px', 'margin-bottom': '10px'}" variant="primary" >Confirmar compra</b-button> 
+                      </router-link>
+                    </div>     
                 </div>
               </div>
             </div>
-    </div>
+      </div>
+
      
  
   </section>

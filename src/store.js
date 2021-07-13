@@ -101,8 +101,8 @@ export default new Vuex.Store({
         },
 
         vaciarCarrito(state){
-            state.carrito = []
-            //localStorage.clear()
+            state.carrito = [];
+            localStorage.clear();
         }
     }
 })
