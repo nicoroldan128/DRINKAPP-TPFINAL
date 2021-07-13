@@ -22,10 +22,50 @@
 
       <br>
       <h5 class="font text-center" style="font-size: 40px">Check Out</h5>
-      <h5 class="font text-center" style="font-size: 25px">Ingresa tus datos</h5>
+      
 
-     <!-- <div v-if="usuario == null"> -->
+     <div v-if="usuario !== null">
 
+       <h1 class="font text-center">Buen día {{usuario.user.fullName}}</h1>
+
+       <div class="table-responsive">
+            <table class="table">
+              <h5 class="font text-center" :style="{'font-size': '30px', 'margin-top' : '20px'}">Detalle Productos</h5>
+              <tr class="bg-dark text-white">
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Precio Total</th>
+              </tr>
+              <tr class="bg-white text-black" v-for="(producto) in mostrarCarrito" :key="producto.producto._id">
+                <td>{{ producto.producto.name}}</td>
+                <td style="text-align: -webkit-center">{{ producto.cant}}</td>
+                <td id="dinero">$ {{ producto.producto.price}}</td>
+                <td id="dinero">$ {{ producto.producto.price * producto.cant}}</td>
+              </tr>
+              <tr class="bg-dark text-white">
+                <th></th>
+                <th></th>
+                <th id="dinero">Total a Pagar</th>
+                <th id="dinero">${{this.calcularTotal(mostrarCarrito)}}</th>
+              </tr>
+            </table>   
+        </div>    
+
+        <div style="width: fit-content">
+          <button class="btn margin-right" type="submit" :class="getClass(formState.$invalid)" v-on:click="send()">Confirmar Compra</button>
+
+          <router-link to="/productos">
+              <button class="btn btn-link margin-left" type="submit">Seguir Comprando</button>
+          </router-link>
+          
+        </div>
+     </div>
+
+     <div v-else>
+     
+       <h5 class="font text-center" style="font-size: 25px">Ingresa tus datos</h5>
+       <br/>
       <vue-form :state="formState" @submit.prevent="enviar()">
         <div class="container">
             <validate tag="div" >
@@ -135,6 +175,7 @@
 
       </vue-form>
   
+    </div>
    </div>
 
 
@@ -171,7 +212,8 @@
           alcohol:''
         },
         ticket:'',
-        updateProducts:[]
+        updateProducts:[],
+        usuario:JSON.parse(localStorage.getItem('user'))
       }
     },
     methods: {
@@ -214,6 +256,22 @@
         console.log(this.updateProducts);
         this.formData=this.getInitialData()
         this.formState._reset()
+
+        localStorage.removeItem('carrito');
+      },
+      send(){
+        this.addProductsCart(this.mostrarCarrito);
+        this.sale = {
+          client:this.usuario.user.fullName,
+          salesPrice:this.calcularTotal(this.mostrarCarrito),
+          payMethod:'Efectivo',
+          products:this.productsCart
+        }
+        this.postSale(this.sale);
+
+        this.updateProductsCart(this.updateProducts);
+
+        localStorage.removeItem('carrito');
       },
       postSale(sale){
         this.axios.post(this.postUrl,sale)
