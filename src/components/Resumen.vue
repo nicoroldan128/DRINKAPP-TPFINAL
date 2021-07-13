@@ -1,16 +1,15 @@
 <template>
 
-  <section class="src-components-resumen">
-    <!-- <div class="jumbotron"> -->
+ 
+<section class="src-components-login-formulario">
       <br>
-      <h5 class="font text-center" style="font-size: 35px">Podes registrarte acá</h5>
-      <br>
+      <h5 class="font text-center" style="font-size: 35px">Check Out {{formData.name | primerLetramayuscula}}</h5>
       <h5 class="font text-center" style="font-size: 30px">Ingresa tus datos</h5>
-      <br>
+
       <vue-form :state="formState" @submit.prevent="enviar()">
         <div class="container">
             <validate tag="div" >
-              <label for="name" >Nombre</label>
+              <label for="name" >Nombre Completo</label>
               <input 
               type="text" 
               name="name" 
@@ -24,7 +23,7 @@
               
               >
               <field-messages name="name" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2 ml-1">Campo requerido</div>
+                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
                 <div slot="minlength" class="alert alert-danger mt-2">
                   Ingrese al menos {{this.nameMin}} caracteres
                 </div>
@@ -35,16 +34,15 @@
             </validate>
 
           <validate tag="div">
-              <label for="apellido" >Apellido</label>
+              <label for="direccion">Direccion</label>
               <input 
               type="text" 
-              name="apellido" 
-              id="apellido"   
+              name="direccion" 
+              id="direccion"   
               class="form-control"
-              v-model.trim="formData.apellido"
+              v-model.trim="formData.direccion"
               required
               :minlength="nameMin"
-              :maxlength="nameMax"
               autocomplete="off"
               
               >
@@ -53,37 +51,11 @@
                 <div slot="minlength" class="alert alert-danger mt-2">
                   Ingrese al menos {{this.nameMin}} caracteres
                 </div>
-                <div v-if="formData.name.length == nameMax" class="alert alert-warning mt-2">
-                  Ingrese menos de {{this.nameMax}} caracteres
-                </div>
               </field-messages>
             </validate>
-
-            <validate tag="div">
-              <label for="apellido" >DNI</label>
-              <input 
-              type="text" 
-              name="dni" 
-              id="dni"   
-              class="form-control"
-              v-model.trim="formData.dni"
-              required
-              :minlength="dniMinMax"
-              :maxlength="dniMinMax"
-              autocomplete="off"
-              >
-              <field-messages name="dni" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
-                <div slot="minlength" class="alert alert-danger mt-2">
-                  Ingrese al menos {{this.dniMinMax}} caracteres
-                </div>
-
-              </field-messages>
-            </validate>
-
           
             <validate tag="div">
-              <label for="fechaDeNacimiento" >Fecha de nacimiento</label>
+              <label for="fechaDeNacimiento" >Fecha de Retiro</label>
               <input 
               type="date" 
               name="fechaDeNacimiento" 
@@ -92,42 +64,14 @@
               v-model.trim="formData.fechaDeNacimiento"
               required
               autocomplete="off"
-              
               >
               <field-messages name="fechaDeNacimiento" show="$dirty">
                 <div slot="required" class="alert alert-danger mt-2">Ingrese la fecha dd-mm-aaaa</div>
               </field-messages>
             </validate>
             
-          
             <validate tag="div">
-              <label for="age" >Edad</label>
-              <input 
-              type="number" 
-              name="age" 
-              id="age"   
-              class="form-control"
-              v-model.number="formData.age"
-              required
-              :min="ageMin"
-              :max="ageMax"
-              autocomplete="off"
-              
-              >
-              <field-messages name="age" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
-                <div slot="min" class="alert alert-danger mt-2">
-                  La edad minima es de {{ageMin}}
-                </div>
-                <div slot="max" class="alert alert-danger mt2">
-                  La edad maxima es de {{ageMax}}
-                </div>
-              </field-messages>
-            </validate>
-            
-            
-            <validate tag="div">
-              <label for="email" >Email</label>
+              <label for="email" >Metodo de Pago</label>
               <input 
               type="email" 
               name="email" 
@@ -139,40 +83,23 @@
               
               >
               <field-messages name="email" show="$dirty" >
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
+                <div slot="required" class="alert alert-danger">Campo requerido</div>
                 <div slot="email" class="alert alert-danger mt-2">Email invalido</div>
               </field-messages>
             </validate>
 
-
-            <validate tag="div">
-              <label for="password" >Contraseña</label>
-              <input 
-              type="password" 
-              name="password" 
-              id="password"   
-              class="form-control"
-              v-model.trim="formData.password"
-              required
-              :min="contraseniaMin"
-              autocomplete="off" 
-              
-              >
-              <field-messages name="password" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Ingrese una contraseña. La misma tiene que contener una mayúscula, un número y un símbolo (!#$%&/)</div>
-                <div slot="min" class="alert alert-danger mt-2">
-                  Ingrese al menos {{this.contraseniaMin}} caracteres
-                </div>                
-              </field-messages>
-            </validate>
         </div>
-        <button class="btn margin-right" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="enviar()">Finalizar registro </button>
 
-         <button class="btn margin-left" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" >Ir al carrito</button>
-        <!-- <pre>{{formData}}</pre> -->
+        <div style="width: fit-content">
+          <button class="btn margin-right" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" v-on:click="enviar()">Registrarme </button>
+
+          <button class="btn margin-left" type="submit" :disabled="formState.$invalid" :class="getClass(formState.$invalid)" >Ir al carrito</button>
+
+        </div>
+
+        
       
       </vue-form>
-    <!-- </div>  -->   
 
     <div class="table-responsive">
         <table class="table">
@@ -266,30 +193,34 @@
 </script>
 
 <style scoped lang="css">
+.src-components-login-formulario {
+    background-color: #e0e1e2;
+}
 
 button{
-  margin-top: 30px;
-  margin-bottom: 50px;
-  margin-left: 550px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 50px;
+
 }
+
 hr{
-  background-color: #000000;
+    background-color: #000000;
 }
 label{
-  color: #020000;
+    color: #020000;
+    margin-top: 5px;
 }
-pre{
-  background-color: #ffffff;
-  margin-top: 50px;
-}
+
 div{
-  margin-bottom: 30px;
-  margin-left: 300px;
+    display:block;
+    margin:auto;
+  
 }
 .alert-danger{
-  margin-left: -300px;
-  height: 3.5em;
-  width:700px;
+    display:block;
+    margin:auto;
 }
 .font{
     font-size: 50px;
@@ -297,12 +228,10 @@ div{
 }
 
 .form-control{
-  height: 3.5em;
-  width:700px;
+    display:block;
+    margin:auto;
 } 
+  
 
-.src-components-resumen{
-  background-color: #e0e1e2;
-}
 
 </style>

@@ -77,10 +77,17 @@
                 <div class="modal-body text-center">
                   <img class="card-img-top" src="https://img.flaticon.com/icons/png/512/34/34627.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" :style="{width:'50px', borderRadius:'5px'}" alt="Card image cap">
                   
-                  <h5 class="card-text text-center mt-3"><b>Total $ {{calcularTotal(mostrarCarrito)}}</b></h5>
+                  <h5 class="card-text text-center mt-3"><b>Total a Pagar $ {{calcularTotal(mostrarCarrito)}}</b></h5>
                     <p class="card-text mb-0 text-center">Medio de pago: Efectivo</p>     
                 </div>
+                <div class="modal-footer">
+                  <router-link to="/resumen">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Realizar Pago
+                      </button>
+                  </router-link>
+                </div>    
               </div>
+             
             </div>
     </div>
      
