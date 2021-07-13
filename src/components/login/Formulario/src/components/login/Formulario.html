@@ -8,7 +8,7 @@
       <vue-form :state="formState" @submit.prevent="enviar()">
         <div class="container">
             <validate tag="div" >
-              <label for="name" >Nombre</label>
+              <label for="name" >Nombre completo</label>
               <input 
               type="text" 
               name="name" 
@@ -32,51 +32,37 @@
               </field-messages>
             </validate>
 
-          <validate tag="div">
-              <label for="apellido" >Apellido</label>
+
+            <validate tag="div">
+              <label for="phone" >Telefono</label>
+              <input 
+              type="number" 
+              name="phone" 
+              id="phone"   
+              class="form-control"
+              v-model.trim="formData.phone"
+              required
+              :minlength="dniMinMax"
+              :maxlength="dniMinMax"
+              autocomplete="off"
+              >
+            </validate>
+
+            <validate tag="div">
+              <label for="direction" >Dirección</label>
               <input 
               type="text" 
-              name="apellido" 
-              id="apellido"   
+              name="direction" 
+              id="direction"   
               class="form-control"
-              v-model.trim="formData.apellido"
+              v-model.trim="formData.direction"
               required
               :minlength="nameMin"
               :maxlength="nameMax"
               autocomplete="off"
               
               >
-              <field-messages name="apellido" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
-                <div slot="minlength" class="alert alert-danger mt-2">
-                  Ingrese al menos {{this.nameMin}} caracteres
-                </div>
-                <div v-if="formData.name.length == nameMax" class="alert alert-warning mt-2">
-                  Ingrese menos de {{this.nameMax}} caracteres
-                </div>
-              </field-messages>
-            </validate>
-
-            <validate tag="div">
-              <label for="apellido" >DNI</label>
-              <input 
-              type="text" 
-              name="dni" 
-              id="dni"   
-              class="form-control"
-              v-model.trim="formData.dni"
-              required
-              :minlength="dniMinMax"
-              :maxlength="dniMinMax"
-              autocomplete="off"
-              >
-              <field-messages name="dni" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
-                <div slot="minlength" class="alert alert-danger mt-2">
-                  Ingrese al menos {{this.dniMinMax}} caracteres
-                </div>
-
-              </field-messages>
+              
             </validate>
 
           
@@ -97,31 +83,6 @@
               </field-messages>
             </validate>
             
-          
-            <validate tag="div">
-              <label for="age" >Edad</label>
-              <input 
-              type="number" 
-              name="age" 
-              id="age"   
-              class="form-control"
-              v-model.number="formData.age"
-              required
-              :min="ageMin"
-              :max="ageMax"
-              autocomplete="off"
-              
-              >
-              <field-messages name="age" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Campo requerido</div>
-                <div slot="min" class="alert alert-danger mt-2">
-                  La edad minima es de {{ageMin}}
-                </div>
-                <div slot="max" class="alert alert-danger mt2">
-                  La edad maxima es de {{ageMax}}
-                </div>
-              </field-messages>
-            </validate>
             
             
             <validate tag="div">
@@ -154,13 +115,9 @@
               required
               :min="contraseniaMin"
               autocomplete="off" 
-              
               >
               <field-messages name="password" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-2">Ingrese una contraseña. La misma tiene que contener una mayúscula, un número y un símbolo (!#$%&/)</div>
-                <div slot="min" class="alert alert-danger mt-2">
-                  Ingrese al menos {{this.contraseniaMin}} caracteres
-                </div>                
+                <div slot="required" class="alert alert-danger mt-2">Ingrese una contraseña. La misma tiene que contener una mayúscula, un número y un símbolo (!#$%&/)</div>              
               </field-messages>
             </validate>
         </div>

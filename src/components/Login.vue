@@ -67,7 +67,9 @@ export default {
       formData:this.getInitialData(),
       formState:{},
       email: '',
-      password: ''
+      password: '',
+      loginUrl:'https://drinkapparg.herokuapp.com/api/clients/login',
+      tockenStorage:{}
     }
   },
   computed: {
@@ -93,6 +95,23 @@ export default {
         ]
     },
     login(){
+
+      let client = {
+        email: this.formData.email,
+        password:this.formData.password
+      }
+
+
+      this.axios.post(this.loginUrl,client)
+      .then(res => {
+        this.tockenStorage = {
+          user:res.data.client,
+          token:res.data.token
+        };
+        localStorage.setItem('user',JSON.stringify(this.tockenStorage));
+      })
+      .catch(error => console.log(error))
+
 
       this.formData.email = ''
       this.formData.password = ''
