@@ -53,11 +53,11 @@
           <validate tag="div">
               <label for="phone"><strong>Telefono de Contacto</strong></label>
               <input 
-              type="tel" 
+              type="number" 
               name="phone" 
               id="phone"   
               class="form-control"
-              v-model.trim="formData.tel"
+              v-model.trim="formData.phone"
               required              
               >
               <field-messages name="phone" show="$dirty">
@@ -127,7 +127,25 @@
         formData:this.getInitialData(),
         formState:{},
         nameMin:3,
-        nameMax:40
+        nameMax:40,
+        sale:{
+          client:'',
+          salesPrice:'',
+          payMethod:'',
+          products:[]
+        },
+        postUrl:'https://drinkapparg.herokuapp.com/api/sales',
+        productsCart:[],
+        productOnCart:{
+          name:'',
+          price:'',
+          description:'',
+          brand:'',
+          category:'',
+          alcohol:''
+        },
+        ticket:'',
+        updateProducts:[]
       }
     },
     methods: {
@@ -156,18 +174,61 @@
         return sumaProductos
       },
       enviar(){
-        console.log({...this.formData})
-        this.postUser(this.formData)
+        this.addProductsCart(this.mostrarCarrito);
+        this.sale = {
+          client:this.formData.name,
+          salesPrice:this.calcularTotal(this.mostrarCarrito),
+          payMethod:'Efectivo',
+          products:this.productsCart
+        }
+        this.postSale(this.sale);
+
+        this.updateProductsCart(this.updateProducts);
+
+        console.log(this.updateProducts);
         this.formData=this.getInitialData()
         this.formState._reset()
       },
-      async postUser(data){
-        try {
-          console.log(data);
-          await this.axios.post(this.postUrl,data,{'content-type':'application/json'})      
-        } catch (error) {
-          console.error(error);
-        }
+      postSale(sale){
+        this.axios.post(this.postUrl,sale)
+        .then(res => this.ticket = res.data.insertedId)
+        .catch(error => console.log(error));      
+      },
+      addProductsCart(mostrarCarrito){
+        mostrarCarrito.forEach(product => {
+          this.productOnCart={
+            name:product.producto.name,
+            price:product.producto.price,
+            description:product.producto.description,
+            brand:product.producto.brand,
+            category:product.producto.category,
+            alcohol:product.producto.alcohol
+          };
+          let productStock={
+            id:product.producto._id,
+            product:{
+              name:product.producto.name,
+              price:product.producto.price,
+              description:product.producto.description,
+              brand:product.producto.brand,
+              category:product.producto.category,
+              stock:product.producto.stock - product.cant,
+              image:product.producto.image,
+              alcohol:product.producto.alcohol
+            }
+          };
+          this.updateProducts.push(productStock);
+          this.productsCart.push(this.productOnCart);
+        })
+      },
+      updateProductsCart(productsCart){
+        productsCart.forEach(productCart => {
+          console.log(productCart.id);
+          let productUrl = `https://drinkapparg.herokuapp.com/api/products/${productCart.id}`;
+          this.axios.put(productUrl,productCart.product)
+          .then(res => console.log(res))
+          .catch(error => console.log(error))
+        })
       }
     }, 
     computed: {
