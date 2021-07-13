@@ -10,11 +10,12 @@ export default {
       nameMin:3,
       nameMax:15,
       /* fechaMinMax: 10, */
-      dniMinMax: 8,
+      phoneMin: 1,
+      phoneMax:10000000000,
       ageMax:120,
       ageMin:18,
       contraseniaMin:8,
-      postUrl:'https://60b6e23917d1dc0017b8878b.mockapi.io/usuarios'
+      postUrl:'https://drinkapparg.herokuapp.com/api/clients'
     }
   },
   computed: {
@@ -44,11 +45,9 @@ export default {
         ]
     },
     enviar(){
-      console.log({...this.formData})
-      this.postUser(this.formData)
 
       let register = {
-        name:this.formData.name,
+        fullName:this.formData.name,
         email:this.formData.email,
         password:this.formData.password,
         phone:this.formData.phone,
@@ -57,16 +56,14 @@ export default {
       }
 
       console.log(register);
+      this.postUser(register);
       this.formData=this.getInitialData()
       this.formState._reset()
     },
-    async postUser(data){
-      try {
-        console.log(data);
-        await this.axios.post(this.postUrl,data,{'content-type':'application/json'})      
-      } catch (error) {
-        console.error(error);
-      }
+    postUser(data){
+        this.axios.post(this.postUrl,data)
+        .then(res => console.log(res))
+        .catch(error => console.log(error))     
     }
   }
 }
